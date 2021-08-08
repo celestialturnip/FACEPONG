@@ -35,9 +35,9 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
 margin_left = 71.0
-margin_top = 112.0
+margin_top = 88.0
 margin_right = 185.0
-margin_bottom = 128.0
+margin_bottom = 104.0
 custom_constants/separation = -2
 
 [node name="FACEPO" type="Label" parent="CenterContainer/HBoxContainer"]
