@@ -9,17 +9,24 @@ export(int, 0, 1) var is_human
 
 func _ready():
 	ball = MainInstances.Ball
+	$Sprite.modulate = Utils.get_random_color()
 
-func _process(delta):
+func _process(_delta):
 	if is_human:
 		velocity = Vector2(
 			int(Input.is_action_pressed("ui_right")) -
 			int(Input.is_action_pressed("ui_left")
 		), 0) * speed
 		return
-	elif !is_human and ball:
+	# AI logic.
+	if not ball: return
+
+	# Update velocity depending on orientation.
+	if int(round(rotation_degrees)) % 180 == 0:
 		velocity = Vector2(position.direction_to(ball.position).x, 0) * speed
-		return
+	else:
+		velocity = Vector2(0, position.direction_to(ball.position).y) * speed
+
 
 func _physics_process(delta):
 	var _collision_info = move_and_collide(velocity * delta)
