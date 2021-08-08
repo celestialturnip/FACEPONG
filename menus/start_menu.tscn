@@ -1,11 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://fonts/zx_spectrum/zx-spectrum.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://player/face_sad.png" type="Texture" id=1]
+[ext_resource path="res://fonts/zx_spectrum/14px.tres" type="DynamicFont" id=2]
+[ext_resource path="res://player/face_happy.png" type="Texture" id=3]
+[ext_resource path="res://player/face_yawn.png" type="Texture" id=4]
+[ext_resource path="res://player/face_mad.png" type="Texture" id=5]
 
-[sub_resource type="DynamicFont" id=1]
-size = 14
-extra_spacing_char = -2
-font_data = ExtResource( 1 )
+[sub_resource type="AnimatedTexture" id=1]
+frames = 4
+fps = 2.0
+frame_0/texture = ExtResource( 3 )
+frame_1/texture = ExtResource( 4 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 1 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 5 )
+frame_3/delay_sec = 0.0
 
 [node name="StartMenu" type="Control"]
 anchor_right = 1.0
@@ -21,13 +31,39 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="Label" parent="CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
 margin_left = 71.0
 margin_top = 112.0
 margin_right = 185.0
 margin_bottom = 128.0
-custom_fonts/font = SubResource( 1 )
-text = "FACEP@NG"
+custom_constants/separation = -2
+
+[node name="FACEPO" type="Label" parent="CenterContainer/HBoxContainer"]
+margin_right = 72.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 2 )
+text = "FACEP"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+margin_left = 70.0
+margin_right = 86.0
+margin_bottom = 16.0
+texture = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NG" type="Label" parent="CenterContainer/HBoxContainer"]
+margin_left = 84.0
+margin_right = 114.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 2 )
+text = "NG"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
