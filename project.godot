@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 CRT="*res://ui/CRT.tscn"
+Utils="*res://utils/utils.gd"
 
 [display]
 
