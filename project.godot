@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Ball",
+"language": "GDScript",
+"path": "res://ball/ball.gd"
+}, {
+"base": "Resource",
+"class": "MainInstances",
+"language": "GDScript",
+"path": "res://utils/main_instances.gd"
+} ]
 _global_script_class_icons={
-
+"Ball": "",
+"MainInstances": ""
 }
 
 [application]
@@ -23,6 +34,7 @@ config/icon="res://icon.png"
 
 CRT="*res://ui/CRT.tscn"
 Utils="*res://utils/utils.gd"
+ResourceLoader="*res://utils/resource_loader.gd"
 
 [display]
 
@@ -86,6 +98,13 @@ ui_down={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="ball"
+2d_physics/layer_3="player"
+2d_physics/layer_4="net"
 
 [rendering]
 
