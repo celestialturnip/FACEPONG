@@ -16,7 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="FACEPONG"
+run/main_scene="res://menus/start_menu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+CRT="*res://ui/CRT.tscn"
 
 [display]
 
