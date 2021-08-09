@@ -7,35 +7,35 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Net0" parent="." instance=ExtResource( 1 )]
-position = Vector2( 128, 8 )
+position = Vector2( 80, 24 )
 
 [node name="Net2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 128, 184 )
+position = Vector2( 80, 168 )
 rotation = 3.14159
 
 [node name="Net1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 216, 96 )
+position = Vector2( 152, 96 )
 rotation = -1.5708
 
 [node name="Net3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 40, 96 )
+position = Vector2( 8, 96 )
 rotation = 1.5708
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
-position = Vector2( 128, 96 )
+position = Vector2( 80, 96 )
 
 [node name="Player2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 128, 184 )
+position = Vector2( 80, 168 )
 is_human = 1
 
 [node name="Player3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 40, 96 )
+position = Vector2( 8, 98 )
 rotation = 1.5708
 
 [node name="Player0" parent="." instance=ExtResource( 2 )]
-position = Vector2( 128, 8 )
+position = Vector2( 80, 24 )
 rotation = 3.14159
 
 [node name="Player1" parent="." instance=ExtResource( 2 )]
-position = Vector2( 216, 96 )
+position = Vector2( 152, 96 )
 rotation = -1.5708

@@ -5,7 +5,7 @@
 [node name="Net" type="Node2D"]
 
 [node name="Post" parent="." instance=ExtResource( 1 )]
-position = Vector2( -73, 0 )
+position = Vector2( -57, 0 )
 
 [node name="Post2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 73, 0 )
+position = Vector2( 57, 0 )
