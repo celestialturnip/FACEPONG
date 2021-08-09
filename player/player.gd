@@ -2,6 +2,9 @@ extends KinematicBody2D
 
 var MainInstances = ResourceLoader.MainInstances
 
+var acceleration = 55
+var friction = 0.30
+var max_speed = 250
 var velocity = Vector2.ZERO
 export(bool) var is_human
 
@@ -14,10 +17,12 @@ func _ready():
 
 func _process(_delta):
 	if is_human:
-		velocity = Vector2(
+		velocity += Vector2(
 			int(Input.is_action_pressed("ui_right")) -
 			int(Input.is_action_pressed("ui_left")
-		), 0) * speed
+		), 0) * acceleration
+		velocity.x = clamp(velocity.x, -max_speed, max_speed)
+		velocity.x = lerp(velocity.x, 0, friction)
 		return
 	# AI logic.
 	if not ball: return
