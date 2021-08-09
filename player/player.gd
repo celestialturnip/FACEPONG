@@ -3,13 +3,14 @@ extends KinematicBody2D
 var MainInstances = ResourceLoader.MainInstances
 
 var ball = null
-var speed = 250
+var speed = null
 var velocity = Vector2.ZERO
 export(int, 0, 1) var is_human
 
 func _ready():
 	ball = MainInstances.Ball
 	$Sprite.modulate = Utils.get_random_color()
+	speed = 250 if is_human else rand_range(250, 450)
 
 func _process(_delta):
 	if is_human:
