@@ -3,7 +3,9 @@ class_name Ball
 
 var MainInstances = ResourceLoader.MainInstances
 
-var speed = 110
+var max_acceleration = 1.2
+var max_speed = 140
+var speed = 70
 var velocity = Vector2.ZERO
 
 func _ready():
@@ -24,5 +26,7 @@ func set_velocity():
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if not collision: return
-	if collision:
-		velocity = velocity.bounce(collision.normal)
+	velocity = velocity.bounce(collision.normal)
+	if sqrt(pow(velocity.x, 2) + pow(velocity.y, 2)) < max_speed:
+		velocity.x *= rand_range(1, max_acceleration)
+		velocity.y *= rand_range(1, max_acceleration)

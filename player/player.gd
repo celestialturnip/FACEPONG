@@ -3,7 +3,7 @@ extends KinematicBody2D
 var MainInstances = ResourceLoader.MainInstances
 
 var ball = null
-var speed = 200
+var speed = 250
 var velocity = Vector2.ZERO
 export(int, 0, 1) var is_human
 
@@ -26,7 +26,6 @@ func _process(_delta):
 		velocity = Vector2(position.direction_to(ball.position).x, 0) * speed
 	else:
 		velocity = Vector2(0, position.direction_to(ball.position).y) * speed
-
 
 func _physics_process(delta):
 	var _collision_info = move_and_collide(velocity * delta)
