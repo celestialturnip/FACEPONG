@@ -26,7 +26,7 @@ position = Vector2( 80, 96 )
 
 [node name="Player2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 80, 168 )
-is_human = 1
+is_human = true
 
 [node name="Player3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 8, 98 )

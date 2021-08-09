@@ -2,15 +2,15 @@ extends KinematicBody2D
 
 var MainInstances = ResourceLoader.MainInstances
 
-var ball = null
-var speed = null
 var velocity = Vector2.ZERO
-export(int, 0, 1) var is_human
+export(bool) var is_human
+
+onready var ball = MainInstances.Ball
+onready var starting_position = position
+onready var speed = 250 if is_human else int(rand_range(250, 450))
 
 func _ready():
-	ball = MainInstances.Ball
 	$Sprite.modulate = Utils.get_random_color()
-	speed = 250 if is_human else rand_range(250, 450)
 
 func _process(_delta):
 	if is_human:
@@ -29,4 +29,9 @@ func _process(_delta):
 		velocity = Vector2(0, position.direction_to(ball.position).y) * speed
 
 func _physics_process(delta):
-	var _collision_info = move_and_collide(velocity * delta)
+	var collision_info = move_and_collide(velocity * delta)
+	if not collision_info: return
+	if int(round(rotation_degrees)) % 180 == 0:
+		position.y = starting_position.y
+	else:
+		position.x = starting_position.x
