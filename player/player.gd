@@ -5,6 +5,8 @@ var MainInstances = ResourceLoader.MainInstances
 var acceleration = 55
 var friction = 0.30
 var max_speed = 250
+var target = null
+var tracking_error = Vector2(rand_range(-5, 5), rand_range(-5, 5))
 var velocity = Vector2.ZERO
 export(bool) var is_human
 
@@ -24,14 +26,16 @@ func _process(_delta):
 		velocity.x = clamp(velocity.x, -max_speed, max_speed)
 		velocity.x = lerp(velocity.x, 0, friction)
 		return
+
 	# AI logic.
 	if not ball: return
+	target = ball.position + tracking_error
 
 	# Update velocity depending on orientation.
 	if int(round(rotation_degrees)) % 180 == 0:
-		velocity = Vector2(position.direction_to(ball.position).x, 0) * speed
+		velocity = Vector2(position.direction_to(target).x, 0) * speed
 	else:
-		velocity = Vector2(0, position.direction_to(ball.position).y) * speed
+		velocity = Vector2(0, position.direction_to(target).y) * speed
 
 func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)
