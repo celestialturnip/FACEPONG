@@ -3,7 +3,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 2 )
 
-[node name="Post" type="StaticBody2D"]
+[node name="SidePost" type="StaticBody2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -13.0

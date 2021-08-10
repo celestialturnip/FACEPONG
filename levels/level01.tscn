@@ -8,18 +8,22 @@
 
 [node name="Net0" parent="." instance=ExtResource( 1 )]
 position = Vector2( 80, 24 )
+rotation = 3.14159
+player_node_path = NodePath("../Player0")
 
 [node name="Net2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 80, 168 )
-rotation = 3.14159
+player_node_path = NodePath("../Player2")
 
 [node name="Net1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 152, 96 )
 rotation = -1.5708
+player_node_path = NodePath("../Player1")
 
 [node name="Net3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 8, 96 )
 rotation = 1.5708
+player_node_path = NodePath("../Player3")
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
 position = Vector2( 80, 96 )
