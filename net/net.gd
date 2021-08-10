@@ -14,4 +14,4 @@ func _on_BallDetector_body_entered(body):
 	player.queue_free()
 	middle_post.enable()
 	$BallDetector.queue_free()
-
+	Signals.emit("ball_entered_net")

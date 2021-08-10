@@ -35,6 +35,7 @@ config/icon="res://icon.png"
 CRT="*res://ui/CRT.tscn"
 Utils="*res://utils/utils.gd"
 ResourceLoader="*res://utils/resource_loader.gd"
+Signals="*res://utils/signals.gd"
 
 [display]
 
