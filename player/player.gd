@@ -3,19 +3,21 @@ extends KinematicBody2D
 var MainInstances = ResourceLoader.MainInstances
 
 var acceleration = 55
+export(Color) var color
 var friction = 0.30
+var health = 3
 var max_speed = 250
 var target = null
-var tracking_error = Vector2(rand_range(-5, 5), rand_range(-5, 5))
+var tracking_error = Vector2(rand_range(-2, 2), rand_range(-2, 2))
 var velocity = Vector2.ZERO
 export(bool) var is_human
 
 onready var ball = MainInstances.Ball
 onready var starting_position = position
-onready var speed = 250 if is_human else int(rand_range(250, 450))
+onready var speed = 250 if is_human else int(rand_range(350, 450))
 
 func _ready():
-	$Sprite.modulate = Utils.get_random_color()
+	$Sprite.modulate = color
 
 func _process(_delta):
 	if is_human:
