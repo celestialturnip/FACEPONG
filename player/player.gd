@@ -2,11 +2,11 @@ extends KinematicBody2D
 
 var MainInstances = ResourceLoader.MainInstances
 
-var acceleration = 55
+var acceleration = 75
 export(Color) var color
 var friction = 0.30
 var health = 3
-var max_speed = 250
+var max_speed = 450
 var target = null
 var tracking_error = Vector2(rand_range(-2, 2), rand_range(-2, 2))
 var velocity = Vector2.ZERO

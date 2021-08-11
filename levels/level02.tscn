@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://utils/camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ball/ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://net/net.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/gravestone01.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/dirt-path.png" type="Texture" id=6]
+[ext_resource path="res://levels/gravestone02.tscn" type="PackedScene" id=7]
+
+[sub_resource type="TileSet" id=1]
+0/name = "dirt-path.png 0"
+0/texture = ExtResource( 6 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 16 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 16, 16 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( -65527, 0, 1, 65545, 0, 1, 131074, 3, 65538, 196617, 0, 1, 262145, 3, 0, 262152, 3, 0, 327689, 0, 1, 458755, 3, 0, 458760, 3, 0, 458761, 0, 1, 524295, 3, 0, 589829, 536870913, 1, 589833, 0, 1, 589837, 536870913, 0, 786431, 0, 1, 720897, 0, 1, 720899, 0, 1, 720901, 536870912, 1, 720903, 536870912, 1, 720905, 536870912, 1, 720907, 536870912, 1, 720909, 536870912, 1, 720911, 0, 1, 720913, 0, 1, 720915, 0, 1, 851973, 536870913, 0, 851977, 536870912, 1, 851981, 536870913, 1, 983049, 536870912, 1, 983051, 1, 65536, 1114121, 536870912, 1, 1245193, 536870912, 1, 1376265, 536870912, 1, 1507337, 0, 1 )
+
+[node name="Net0" parent="." instance=ExtResource( 4 )]
+position = Vector2( 80, 24 )
+rotation = 3.14159
+player_node_path = NodePath("../Player0")
+
+[node name="Net2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 80, 168 )
+player_node_path = NodePath("../Player2")
+
+[node name="Net1" parent="." instance=ExtResource( 4 )]
+position = Vector2( 152, 96 )
+rotation = -1.5708
+player_node_path = NodePath("../Player1")
+
+[node name="Net3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 8, 96 )
+rotation = 1.5708
+player_node_path = NodePath("../Player3")
+
+[node name="Ball" parent="." instance=ExtResource( 3 )]
+position = Vector2( 80, 96 )
+
+[node name="Player2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 80, 168 )
+color = Color( 1, 0.988235, 0.211765, 1 )
+is_human = true
+
+[node name="Player3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 8, 98 )
+rotation = 1.5708
+color = Color( 1, 0.25098, 0.988235, 1 )
+
+[node name="Player0" parent="." instance=ExtResource( 1 )]
+position = Vector2( 80, 24 )
+rotation = 3.14159
+color = Color( 1, 0.2, 0.109804, 1 )
+
+[node name="Player1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 152, 96 )
+rotation = -1.5708
+color = Color( 0, 0.168627, 0.984314, 1 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 2 )]
+
+[node name="Gravestone1" parent="." instance=ExtResource( 5 )]
+position = Vector2( 112, 80 )
+
+[node name="Gravestone2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 48, 112 )
+
+[node name="Gravestone3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 112, 112 )
+
+[node name="Gravestone4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 48, 80 )

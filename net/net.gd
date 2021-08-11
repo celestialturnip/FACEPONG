@@ -10,8 +10,10 @@ func _ready():
 
 func _on_BallDetector_body_entered(body):
 	if !(body is Ball): return
-
-	player.queue_free()
-	middle_post.enable()
-	$BallDetector.queue_free()
 	Signals.emit("ball_entered_net")
+
+	player.health -= 1
+	if player.health == 0:
+		player.queue_free()
+		middle_post.enable()
+		$BallDetector.queue_free()
