@@ -4,11 +4,11 @@ onready var timer = $Timer
 var shake
 
 func _ready():
-	Signals.connect(  # The node that is emitting the signal.
+	assert(!Signals.connect(  # The node that is emitting the signal.
 		"ball_entered_net",  # The name of the signal emitted.
 		self,  # The Node that will receive the signal (usually self).
 		"screenshake"  # Function to run when the signal is sent.
-	)
+	))
 
 func _process(_delta):
 	if not timer.time_left:
