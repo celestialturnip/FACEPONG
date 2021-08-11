@@ -19,3 +19,10 @@ I did experiment with a different approach for the AI from my prototype. In the 
 
 # Day 3 - 2021/08/09
 I finished the first level which is a replica of the Quadrapong layout. I spent some time looking into an issue where the player gets pushed off their starting axis and added a fix to this. I also updated the controls so the player has some acceleration when moving from side to side. This should make it more smooth and easier to do finer movements.
+
+# Day 4 - 2021/08/10
+The main thing I added was detecting when a player loses their health, and if so, remove them from the game and adding a wall where their net used to be. This is pretty identical in functionality to what happened in Quadrapong. I struggled with how to approach this implementation in a way that would keep things simple. I think my final solution is quite good. The left and right walls behind each player, I referred to those as "side posts." They're just StaticBody2D with a ColorRect and CollisionShape. Then I made a "middle post" which is exactly the same except it's a bit longer and in the middle.
+
+When a Net is loaded into the scene, the MiddePost is disabled. When the Net detects a goal scored, if the player has no more health, it enables the MiddlePost.
+
+For now, I've added the logic of removing the player within the Net object but in the future, I imagine I'll have to some sort of global GameManager that is responsible for these actions.
