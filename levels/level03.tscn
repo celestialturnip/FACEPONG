@@ -1,0 +1,137 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://net/net.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://utils/camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ball/ball.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/river.png" type="Texture" id=5]
+[ext_resource path="res://levels/obstacles/tree-pair.tscn" type="PackedScene" id=6]
+[ext_resource path="res://levels/obstacles/tree-single.tscn" type="PackedScene" id=7]
+[ext_resource path="res://tilemaps/dirt-tilemap.tscn" type="PackedScene" id=8]
+[ext_resource path="res://levels/level03.gd" type="Script" id=9]
+
+[sub_resource type="TileSet" id=1]
+0/name = "river.png 0"
+0/texture = ExtResource( 5 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 80, 32 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 16, 16 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="RiverTileMap" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( -65527, 1610612736, 0, 65545, 1610612736, 0, 196617, 1610612736, 0, 327689, 1610612736, 0, 458757, 0, 1, 458759, -1073741824, 0, 458761, 1610612736, 1, 589829, 1610612736, 0, 720901, 1610612736, 0, 851973, 1610612736, 0, 983045, 1610612736, 0, 1114117, -1073741824, 1, 1114119, -1073741824, 0, 1114121, -1073741824, 0, 1114123, -1073741824, 0, 1114125, -1610612736, 1, 1245197, 0, 0, 1376269, 0, 0, 1507341, 0, 0 )
+
+[node name="DirtTileMap" parent="." instance=ExtResource( 8 )]
+tile_data = PoolIntArray( 131074, 3, 65538, 262145, 3, 0, 262152, 3, 0, 458755, 3, 0, 458760, 3, 0, 524295, 3, 0, 589829, 536870913, 1, 589837, 536870913, 0, 851973, 536870913, 0, 851977, 1610612736, 0, 851981, 536870913, 1, 983051, 1, 65536 )
+
+[node name="SpawnPoints" type="Node" parent="."]
+
+[node name="Position2D" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 96, 144 )
+
+[node name="Position2D2" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 56, 64 )
+
+[node name="Net0" parent="." instance=ExtResource( 1 )]
+position = Vector2( 80, 24 )
+rotation = 3.14159
+player_node_path = NodePath("../Player0")
+
+[node name="Net2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 80, 168 )
+player_node_path = NodePath("../Player2")
+
+[node name="Net1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 152, 96 )
+rotation = -1.5708
+player_node_path = NodePath("../Player1")
+
+[node name="Net3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 8, 96 )
+rotation = 1.5708
+player_node_path = NodePath("../Player3")
+
+[node name="Ball" parent="." instance=ExtResource( 4 )]
+position = Vector2( 80, 96 )
+
+[node name="Player2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 80, 168 )
+color = Color( 1, 0.988235, 0.211765, 1 )
+is_human = true
+
+[node name="Player3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8, 96 )
+rotation = 1.5708
+color = Color( 1, 0.25098, 0.988235, 1 )
+
+[node name="Player0" parent="." instance=ExtResource( 2 )]
+position = Vector2( 80, 24 )
+rotation = 3.14159
+color = Color( 1, 0.2, 0.109804, 1 )
+
+[node name="Player1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 152, 96 )
+rotation = -1.5708
+color = Color( 0, 0.168627, 0.984314, 1 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 3 )]
+
+[node name="Trees" type="Node" parent="."]
+
+[node name="TreePair" parent="Trees" instance=ExtResource( 6 )]
+position = Vector2( 64, 80 )
+
+[node name="TreePair2" parent="Trees" instance=ExtResource( 6 )]
+position = Vector2( 48, 48 )
+
+[node name="TreePair3" parent="Trees" instance=ExtResource( 6 )]
+position = Vector2( 48, 48 )
+
+[node name="TreePair4" parent="Trees" instance=ExtResource( 6 )]
+position = Vector2( 80, 94 )
+
+[node name="TreePair5" parent="Trees" instance=ExtResource( 6 )]
+position = Vector2( 112, 80 )
+
+[node name="TreePair7" parent="Trees" instance=ExtResource( 6 )]
+position = Vector2( 112, 64 )
+
+[node name="TreePair6" parent="Trees" instance=ExtResource( 6 )]
+position = Vector2( 112, 112 )
+
+[node name="TreeSingle" parent="Trees" instance=ExtResource( 7 )]
+position = Vector2( 32, 48 )
+
+[node name="TreeSingle2" parent="Trees" instance=ExtResource( 7 )]
+position = Vector2( 96, 94 )
+
+[node name="TreeSingle3" parent="Trees" instance=ExtResource( 7 )]
+position = Vector2( 96, 112 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
