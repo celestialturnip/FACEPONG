@@ -41,5 +41,5 @@ func _physics_process(delta):
 func _on_Timer_timeout():
 	target = ball.position
 
-func _on_Tween_tween_completed(object, key):
+func _on_Tween_tween_completed(_object, _key):
 	collider.disabled = false

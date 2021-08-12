@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://player/face_sad.png" type="Texture" id=1]
 [ext_resource path="res://fonts/zx_spectrum/14px.tres" type="DynamicFont" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://player/face_yawn.png" type="Texture" id=4]
 [ext_resource path="res://player/face_mad.png" type="Texture" id=5]
 [ext_resource path="res://menus/start_menu.gd" type="Script" id=6]
+[ext_resource path="res://fonts/zx_spectrum/7px.tres" type="DynamicFont" id=7]
 
 [sub_resource type="AnimatedTexture" id=1]
 frames = 4
@@ -33,14 +34,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 23.0
-margin_top = 88.0
+margin_top = 82.0
 margin_right = 137.0
-margin_bottom = 104.0
+margin_bottom = 110.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 114.0
+margin_bottom = 16.0
 custom_constants/separation = -2
 
-[node name="FACEPO" type="Label" parent="CenterContainer/HBoxContainer"]
+[node name="FACEPO" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 margin_right = 72.0
 margin_bottom = 16.0
 custom_fonts/font = ExtResource( 2 )
@@ -50,7 +55,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 margin_left = 70.0
 margin_right = 86.0
 margin_bottom = 16.0
@@ -59,12 +64,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NG" type="Label" parent="CenterContainer/HBoxContainer"]
+[node name="NG" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 margin_left = 84.0
 margin_right = 114.0
 margin_bottom = 16.0
 custom_fonts/font = ExtResource( 2 )
 text = "NG"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 20.0
+margin_right = 114.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 7 )
+text = "01"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

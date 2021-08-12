@@ -20,6 +20,8 @@ func _ready():
 	$Sprite.modulate = color
 
 func _process(_delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		assert(!get_tree().change_scene("res://menus/start_menu.tscn"))
 	if is_human:
 		velocity += Vector2(
 			int(Input.is_action_pressed("ui_right")) -
