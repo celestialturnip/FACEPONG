@@ -25,6 +25,7 @@ func set_velocity():
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if not collision: return
+	if collision.collider is Octopus: collision.collider.queue_free()
 	velocity = velocity.bounce(collision.normal)
 	velocity.x *= rand_range(1, max_acceleration)
 	velocity.y *= rand_range(1, max_acceleration)

@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "MainInstances",
 "language": "GDScript",
 "path": "res://utils/main_instances.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Octopus",
+"language": "GDScript",
+"path": "res://enemies/octopus.gd"
 } ]
 _global_script_class_icons={
 "Ball": "",
-"MainInstances": ""
+"MainInstances": "",
+"Octopus": ""
 }
 
 [application]
