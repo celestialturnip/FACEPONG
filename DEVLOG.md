@@ -26,3 +26,11 @@ The main thing I added was detecting when a player loses their health, and if so
 When a Net is loaded into the scene, the MiddePost is disabled. When the Net detects a goal scored, if the player has no more health, it enables the MiddlePost.
 
 For now, I've added the logic of removing the player within the Net object but in the future, I imagine I'll have to some sort of global GameManager that is responsible for these actions.
+
+# Day 5 - 2021/08/11
+I added a second level (graveyard) with an enemy that appears every few seconds (ghost).
+
+A challenge I had was I didn't know how to add my tilemap tiles at a 8px offset. By default, I could only add them at 16px offsets.  I ended up setting the `cell_size` property 8px by 8px which resolved it, but I'm not quite sure if this is the right approach.
+
+Additionally, I first tried using the Tilemap node for any objects that also required collisions - for example, the gravestones in the graveyard. However, since the sprite's aren't complete rectangles, I wasn't sure if there is a way to add CollisionPolygon2D to tiles in a TileMap. As a result, I ended up just creating StaticBody2Ds for any obstacle I place on the level.
+
