@@ -3,7 +3,7 @@ class_name SidePost
 
 
 func on_hit():
-	SoundFX.play("wall_hit.wav", rand_range(0.9, 1.1))
+	SoundFX.play("wall_hit.wav")
 	$Tween.interpolate_property(
 		$ColorRect, # object
 		"color", # property

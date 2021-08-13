@@ -42,6 +42,19 @@ func _process(_delta):
 	else:
 		velocity = Vector2(0, position.direction_to(target).y) * speed
 
+func on_hit():
+	SoundFX.play("player_hit.wav")
+	$Tween.interpolate_property(
+		self, # object
+		"scale", # property
+		Vector2(1.3, 1.3), # initial_val
+		Vector2(1.0, 1.0), # final_val
+		0.3, # duration
+		Tween.TRANS_BACK, # trans_type
+		Tween.EASE_IN # ease_type
+	)
+	$Tween.start()
+
 func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)
 	if not collision_info: return

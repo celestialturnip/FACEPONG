@@ -29,7 +29,7 @@ func _physics_process(delta):
 	var collider = collision.collider
 	if collider is Octopus: collider.queue_free()
 	elif collider is SidePost: collider.on_hit()
-	elif collider is Player: SoundFX.play("player_hit.wav", rand_range(0.95, 1.05))
+	elif collider is Player: collider.on_hit()
 
 	velocity = velocity.bounce(collision.normal)
 	velocity.x *= rand_range(1, max_acceleration)
