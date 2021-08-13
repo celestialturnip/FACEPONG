@@ -21,5 +21,3 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
-
-[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

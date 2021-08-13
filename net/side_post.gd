@@ -1,31 +1,20 @@
 extends StaticBody2D
 class_name SidePost
 
+var multiplier = 1
 
 func on_hit():
+	# If Tween is already active, that means the post is being hit by a ball multiple times very quickly (most likely
+	# by a player squeezing the ball against it). Increase the multiplier so that each time the ball keeps hitting the
+	# post, the post gets larger pushing the ball and player away.
+	if $Tween.is_active():
+		multiplier *= 1.2
+	else:
+		multiplier = 1
+
 	SoundFX.play("wall_hit.wav")
-	$Tween.interpolate_property(
-		$ColorRect, # object
-		"color", # property
-		Color.white, # initial_val
-		Color.red, # final_val
-		0.05, # duration
-		Tween.TRANS_LINEAR, # trans_type
-		Tween.EASE_IN_OUT # ease_type
-	)
+
+	$Tween.interpolate_property($ColorRect, "color", Color.red, Color.whitesmoke, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	$Tween.interpolate_property(self, "scale", Vector2(1.2, 1.2) * multiplier, Vector2(1.0, 1.0), 0.3, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
 	$Tween.start()
 
-func _on_Tween_tween_completed(object, key):
-	if $ColorRect.color == Color.white:
-		return
-
-	$Tween.interpolate_property(
-		$ColorRect, # object
-		"color", # property
-		Color.red, # initial_val
-		Color.white, # final_val
-		0.05, # duration
-		Tween.TRANS_LINEAR, # trans_type
-		Tween.EASE_IN_OUT # ease_type
-	)
-	$Tween.start()
