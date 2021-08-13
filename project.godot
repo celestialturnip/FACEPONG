@@ -23,11 +23,23 @@ _global_script_classes=[ {
 "class": "Octopus",
 "language": "GDScript",
 "path": "res://enemies/octopus.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://player/player.gd"
+}, {
+"base": "StaticBody2D",
+"class": "SidePost",
+"language": "GDScript",
+"path": "res://net/side_post.gd"
 } ]
 _global_script_class_icons={
 "Ball": "",
 "MainInstances": "",
-"Octopus": ""
+"Octopus": "",
+"Player": "",
+"SidePost": ""
 }
 
 [application]
@@ -42,6 +54,7 @@ CRT="*res://ui/CRT.tscn"
 Utils="*res://utils/utils.gd"
 ResourceLoader="*res://utils/resource_loader.gd"
 Signals="*res://utils/signals.gd"
+SoundFX="*res://sounds/soundFX.tscn"
 
 [display]
 

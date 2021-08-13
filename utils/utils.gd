@@ -9,3 +9,23 @@ func _ready():
 
 func get_random_color():
 	return palette[randi() % palette.size()]
+
+func list_files_in_directory(path, file_extension="*"):
+	var files = []
+	var dir = Directory.new()
+	dir.open(path)
+	dir.list_dir_begin()
+
+	while true:
+		var file = dir.get_next()
+		if file == "":
+			break
+		elif not file.begins_with("."):
+			if file_extension == "*":
+				files.append(file)
+			elif file.ends_with(file_extension):
+				files.append(file)
+
+	dir.list_dir_end()
+
+	return files

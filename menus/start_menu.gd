@@ -6,6 +6,7 @@ onready var face_texture = $CenterContainer/VBoxContainer/HBoxContainer/TextureR
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
+		SoundFX.play("menu_accept.wav")
 		assert(!get_tree().change_scene("res://levels/level0{idx}.tscn".format({"idx": levels[level_idx]})))
 	elif Input.is_action_just_pressed("ui_left"):
 		level_idx = (level_idx - 1) % len(levels)
@@ -16,6 +17,7 @@ func _process(_delta):
 
 func update_level_label():
 	$CenterContainer/VBoxContainer/LevelLabel.text = "0" + levels[level_idx]
+	SoundFX.play("menu_navigation.wav", rand_range(0.95, 1.05))
 
 func _on_Timer_timeout():
 	face_texture.modulate = Utils.get_random_color()
