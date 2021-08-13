@@ -34,3 +34,7 @@ A challenge I had was I didn't know how to add my tilemap tiles at a 8px offset.
 
 Additionally, I first tried using the Tilemap node for any objects that also required collisions - for example, the gravestones in the graveyard. However, since the sprite's aren't complete rectangles, I wasn't sure if there is a way to add CollisionPolygon2D to tiles in a TileMap. As a result, I ended up just creating StaticBody2Ds for any obstacle I place on the level.
 
+# Day 6 = 2021/08/12
+Short update: I added a new level (river forest), added a new enemy (octopus), and added some level selection to the main menu.
+
+There's some duplicate code shared between both the Ghost and Octopus enemies. I think I can definitely refactor how they fade in to appear and fade out to disappear by creating some AnimationPlayer that has two animations: fade_in and fade_out. Then I can re-use this component on any enemies within my game. For now, I'll leave it as is but I've added it to my backlog for next week.
