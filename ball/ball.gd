@@ -9,18 +9,23 @@ var velocity = Vector2.ZERO
 
 func _ready():
 	MainInstances.Ball = self
-	set_velocity()
+	reset()
 
 func _exit_tree():
 	MainInstances.Ball = null
 
 func _process(_delta):
-	if Input.is_action_just_pressed("reset"):
-		position = Vector2(Utils.virtual_width / 2, Utils.virtual_height / 2)
-		set_velocity()
+	if Input.is_action_just_pressed("reset"): reset()
 
-func set_velocity():
+func reset_velocity():
 	velocity = Vector2(rand_range(-0.3, .3), rand_range(-1, 1)).normalized() * speed
+
+func reset_position():
+	position = Vector2(Utils.virtual_width / 2, Utils.virtual_height / 2)
+
+func reset():
+	reset_position()
+	reset_velocity()
 
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)

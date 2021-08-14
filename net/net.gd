@@ -11,6 +11,7 @@ func _ready():
 func _on_BallDetector_body_entered(body):
 	if !(body is Ball): return
 	Signals.emit("ball_entered_net")
+	body.reset()
 
 	player.health -= 1
 	if player.health == 0:
