@@ -32,7 +32,7 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if not collision: return
 
-	collision.collider.on_hit()
+	if collision.collider.has_method("on_hit"): collision.collider.on_hit()
 
 	velocity = velocity.bounce(collision.normal)
 	velocity.x *= rand_range(1, max_acceleration)

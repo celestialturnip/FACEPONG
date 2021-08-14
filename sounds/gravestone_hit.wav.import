@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/gravestone_hit.wav-3b5580d7895a7e5a5c2cc41d9e1025fe.sample"
+
+[deps]
+
+source_file="res://sounds/gravestone_hit.wav"
+dest_files=[ "res://.import/gravestone_hit.wav-3b5580d7895a7e5a5c2cc41d9e1025fe.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
