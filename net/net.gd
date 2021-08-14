@@ -13,7 +13,7 @@ func _on_BallDetector_body_entered(body):
 	Signals.emit("ball_entered_net")
 	body.reset()
 
-	player.health -= 1
+	player.on_goal_allowed()
 	if player.health == 0:
 		player.queue_free()
 		middle_post.enable()

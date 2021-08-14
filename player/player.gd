@@ -55,6 +55,14 @@ func on_hit():
 	)
 	$Tween.start()
 
+func on_goal_allowed():
+	health -= 1
+	if is_human:
+		SoundFX.play("goal_allowed.wav")
+	else:
+		SoundFX.play("goal_scored.wav")
+
+
 func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)
 	if not collision_info: return

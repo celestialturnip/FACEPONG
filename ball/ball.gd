@@ -16,8 +16,9 @@ func _exit_tree():
 
 func _process(_delta):
 	if Input.is_action_just_pressed("reset"): reset()
+	if Input.is_action_just_pressed("serve"): serve()
 
-func reset_velocity():
+func serve():
 	velocity = Vector2(rand_range(-0.3, .3), rand_range(-1, 1)).normalized() * speed
 
 func reset_position():
@@ -25,7 +26,7 @@ func reset_position():
 
 func reset():
 	reset_position()
-	reset_velocity()
+	velocity = Vector2.ZERO
 
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
