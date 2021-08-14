@@ -31,12 +31,7 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if not collision: return
 
-	var collider = collision.collider
-	if collider is Octopus: collider.queue_free()
-	elif collider is SidePost: collider.on_hit()
-	elif collider is MiddlePost: collider.on_hit()
-	elif collider is Player: collider.on_hit()
-	else: print("collider is undetected:", collider)
+	collision.collider.on_hit()
 
 	velocity = velocity.bounce(collision.normal)
 	velocity.x *= rand_range(1, max_acceleration)

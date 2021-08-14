@@ -3,6 +3,9 @@ class_name Octopus
 
 onready var collider = $CollisionShape2D
 
+func on_hit():
+	queue_free()
+
 func fade_out():
 	collider.disabled = true
 	$Tween.interpolate_property(
