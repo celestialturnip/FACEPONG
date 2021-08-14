@@ -63,3 +63,8 @@ func on_hit():
 
 As for the walls, I had something similar in mind. The one thing I wanted to do was add a little color for when the ball hits the wall. I was inspired by a demo in the [Godot docs](https://docs.godotengine.org/en/stable/tutorials/physics/using_kinematic_body_2d.html#bouncing-reflecting) where the wall has a flashing effect on hit. I implemented this in a similar way, where I just start a Tween from red to white.
 
+# Day 8 - 2021/08/14
+Not the largest update but I continued adding visual and sound effects to the game: hitting a gravestone, scoring a goal, letting a goal in, and hitting a tree. I also added some quality of life features: press "r" to reset the ball to the middle and "s" to serve it.
+
+To date, I haven't had a hard plan of exactly what I'm doing each day. I have sort of a laundry list of tasks in Trello, sorted by "this week" and "eventually". "This week" are tasks that I generally deem necessary to have some decent sort of demo, and all of my issues or nice-to-have's go under "eventually."
+
