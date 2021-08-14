@@ -17,7 +17,7 @@ func _process(_delta):
 
 func update_level_label():
 	$CenterContainer/VBoxContainer/LevelLabel.text = "0" + levels[level_idx]
-	SoundFX.play("menu_navigation.wav", rand_range(0.95, 1.05))
+	SoundFX.play("menu_navigation.wav")
 
 func _on_Timer_timeout():
 	face_texture.modulate = Utils.get_random_color()
