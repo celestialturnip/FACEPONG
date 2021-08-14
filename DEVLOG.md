@@ -34,7 +34,32 @@ A challenge I had was I didn't know how to add my tilemap tiles at a 8px offset.
 
 Additionally, I first tried using the Tilemap node for any objects that also required collisions - for example, the gravestones in the graveyard. However, since the sprite's aren't complete rectangles, I wasn't sure if there is a way to add CollisionPolygon2D to tiles in a TileMap. As a result, I ended up just creating StaticBody2Ds for any obstacle I place on the level.
 
-# Day 6 = 2021/08/12
+# Day 6 - 2021/08/12
 Short update: I added a new level (river forest), added a new enemy (octopus), and added some level selection to the main menu.
 
 There's some duplicate code shared between both the Ghost and Octopus enemies. I think I can definitely refactor how they fade in to appear and fade out to disappear by creating some AnimationPlayer that has two animations: fade_in and fade_out. Then I can re-use this component on any enemies within my game. For now, I'll leave it as is but I've added it to my backlog for next week.
+
+# Day 7 - 2021/08/13
+I started adding some sound and visual effects to the game.
+
+I initially started using [Bfxr](https://www.bfxr.net), but I couldn't produce many sound effects that I was too thrilled with. I had used [ChipTone](https://sfbgames.itch.io/chiptone) a few times before so I switched back to it and I found I was able to make the types of sound effects I was looking for. I did briefly watch a video of [Arkanoid (NES)](https://www.youtube.com/watch?v=3luUb7WEm7k) to get a sense of what types of sound effects were used in the game. So far, I've just added some basic menu selection, wall hit, and player hit sounds. 
+
+As for visual effects, I've been inspired by a recent talk I watched, [Juice it or lose it](https://www.youtube.com/watch?v=Fy0aCDmgnxg), by Martin Jonasson and Petri Puhro. I wanted to do similar sorts of "juicy" effects in my game but wasn't exactly sure how to do it. My first instinct was just to use a Tween and tween the player's scale to a certain amount and back. I found I didn't need to make it that complicated - I just need a single tween from 1.3x scale back to 1.0x scale:
+
+```gdscript
+func on_hit():
+	SoundFX.play("player_hit.wav")
+	$Tween.interpolate_property(
+		self, # object
+		"scale", # property
+		Vector2(1.3, 1.3), # initial_val
+		Vector2(1.0, 1.0), # final_val
+		0.3, # duration
+		Tween.TRANS_BACK, # trans_type
+		Tween.EASE_IN # ease_type
+	)
+	$Tween.start()
+```
+
+As for the walls, I had something similar in mind. The one thing I wanted to do was add a little color for when the ball hits the wall. I was inspired by a demo in the [Godot docs](https://docs.godotengine.org/en/stable/tutorials/physics/using_kinematic_body_2d.html#bouncing-reflecting) where the wall has a flashing effect on hit. I implemented this in a similar way, where I just start a Tween from red to white.
+
