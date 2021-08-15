@@ -62,7 +62,6 @@ func on_goal_allowed():
 	else:
 		SoundFX.play("goal_scored.wav")
 
-
 func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)
 	if not collision_info: return
