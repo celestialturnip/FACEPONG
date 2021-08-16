@@ -14,4 +14,5 @@ func spawn():
 func _on_Timer_timeout():
 	if $Spawns.get_child_count() < max_spawn_count:
 		spawn()
-	$Timer.start(spawn_interval)
+	else:
+		$Timer.start(spawn_interval)

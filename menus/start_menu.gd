@@ -1,6 +1,6 @@
 extends Control
 
-var levels = ["1", "2", "3"]
+var levels = ["1", "2", "3", "4"]
 var level_idx = 0 
 onready var face_texture = $CenterContainer/VBoxContainer/HBoxContainer/TextureRect
 

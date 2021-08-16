@@ -1,4 +1,5 @@
 extends Node2D
+class_name Net
 
 export (NodePath) var player_node_path
 onready var middle_post = $MiddlePost
