@@ -68,3 +68,46 @@ Not the largest update but I continued adding visual and sound effects to the ga
 
 To date, I haven't had a hard plan of exactly what I'm doing each day. I have sort of a laundry list of tasks in Trello, sorted by "this week" and "eventually". "This week" are tasks that I generally deem necessary to have some decent sort of demo, and all of my issues or nice-to-have's go under "eventually."
 
+# Day 9 - 2021/08/15
+The main things I added were life bars for each player, a UFO enemy, and a generic enemy spawnner that I can reuse across levels.
+
+The generic enemy spawnner is quite simple: it takes a `spawn_interval`, `max_spawn_count` and the enemy scene that it needs to spawn. Every `spawn_interval` seconds, it checks to see how many enemies it's spwanned already - if this is less than `max_spawn_count`, it spawns a new one.
+
+Each enemy stores its own internal logic of how it moves, where it starts, where it moves toward.
+
+Something I have noticed is that I'm reusing the same Tween over and over again in each enemy class:
+
+```gdscript
+func on_hit():
+	$Tween.interpolate_property(
+		self, # object
+		"scale", # property
+		Vector2(1.2, 1.2), # initial_val
+		Vector2(1.0, 1.0), # final_val
+		0.2, # duration
+		Tween.TRANS_BACK, # trans_type
+		Tween.EASE_IN # ease_type
+	)
+	$Tween.start()
+```
+
+It's beginning to be a bit cumbersome to have to do this on every enemy I create (along with every object in the game that becomes bigger on hit). I've thought about making a global Tween and adding a default `interpolate_size` method so that for all objects, I can simply do:
+
+```gdscript
+// enemy.gd
+func on_hit():
+	GlobalTween.interpolate_size(self)
+
+// global_tween.gd
+func interpolate_size(object):
+	$Tween.interpolate_property(
+		object,
+		"scale", # property
+		Vector2(1.2, 1.2), # initial_val
+		object.scale, , # final_val
+		0.2, # duration
+		Tween.TRANS_BACK, # trans_type
+		Tween.EASE_IN # ease_type
+	)
+	$Tween.start()
+```
