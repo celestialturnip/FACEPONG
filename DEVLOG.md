@@ -111,3 +111,16 @@ func interpolate_size(object):
 	)
 	$Tween.start()
 ```
+
+# Day 10 - 2021/08/16
+I added a new level (road intersection) with a new type of interactable (car). To date, any object on the screen that randomly appears and moves around on its own... I've been just grouping it in the "enemies" folder for lack of a better place to put it. I'm not quite sure where it makes the most sense. I could just rename that folder to "interactables" since they're not enemies - they're just active bodies on the screen that move around.
+
+Another observation I've had is balancing when to move on with a "decent" solution versus spending more time trying to get the "perfect" one. For example, when I implemented the Car, I noticed some behaviour that I forgot to anticipate such as when some players have lost all their health. In this case, the arena closes its walls so the roads of Level 4 become blocked.
+
+What I ended up doing, and I think is okay for now, is I just came up with an "okay" solution that's good enough - which is, if there is a collision, stop  moving. This has the side-effect of piling up cars which isn't great, since the spawnner won't be able to spawn new cars once the `max_spawn_count` has been reached. However, I think right now, I'm still in the phase of implementing the full scope of my demo so I don't want to spend too long on any particular task. The general schedule I'm thinking for releasing a game every month is:
+- week 1: build out core mechanics with 2 levels
+- week 2: build out game with all levels and functionality
+- week 3: play test thoroughly each level and fix obvious issues / things with lack of polish
+- week 4: prepare for people other than me to play it, continue adding polish
+
+I think polishing a game and tweaking it to improve the player experience is quite crucial, and I don't want to leave that until the last day. Instead, I want to focus on building the core experience as quick as I can, and then going back later on.
