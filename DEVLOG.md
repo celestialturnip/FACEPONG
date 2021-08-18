@@ -124,3 +124,12 @@ What I ended up doing, and I think is okay for now, is I just came up with an "o
 - week 4: prepare for people other than me to play it, continue adding polish
 
 I think polishing a game and tweaking it to improve the player experience is quite crucial, and I don't want to leave that until the last day. Instead, I want to focus on building the core experience as quick as I can, and then going back later on.
+
+# Day 11 - 2021/08/17
+I added a very basic options menu that you can access from start menu. I only had about 30 minutes to spare yesterday, so I really just wanted to get anything done - some progress is better than nothing. I saw a poster a few years ago that had:
+
+1.01^365 = 37.8
+0.99^365 = 0.03
+
+With that in mind, I've made it a habit to publish at least one commit per day on this project, no matter how small they are. Even with small commits, there are things I'm learning. For example, yesterday I wasn't sure how I can enable/disable the CanvasLayer that I have the CRT texture on. I noticed in the AutoLoad tab in Project Settings that each global node has an Enabled checkbox. I figured this must be a property I can manipulate, but it turns out, this just affects how you can access the node (e.g. `CRT` vs. `get_node("/root/CRT")`).
+
