@@ -17,6 +17,7 @@ shape = SubResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
