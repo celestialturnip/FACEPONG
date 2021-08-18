@@ -7,8 +7,12 @@ var player = null
 
 func _ready():
 	player = get_node(player_node_path)
-	$LifeBar.set_health(player.health)
+	update_lifebar()
 	middle_post.disable()
+	assert(!Signals.connect("player_health_increased", self, "update_lifebar"))
+
+func update_lifebar():
+	$LifeBar.set_health(player.health)
 
 func _on_BallDetector_body_entered(body):
 	if !(body is Ball): return

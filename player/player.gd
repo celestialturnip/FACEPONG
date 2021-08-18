@@ -62,6 +62,10 @@ func on_goal_allowed():
 	else:
 		SoundFX.play("goal_scored.wav")
 
+func increase_health():
+	health += 1
+	Signals.emit("player_health_increased")
+
 func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)
 	if not collision_info: return

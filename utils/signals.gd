@@ -1,7 +1,9 @@
 extends Node
 
-# warning-ignore:unused_signal
+
+# warning-ignore-all:unused_signal
 signal ball_entered_net
+signal player_health_increased
 
 func emit(signal_name):
 	emit_signal(signal_name)
