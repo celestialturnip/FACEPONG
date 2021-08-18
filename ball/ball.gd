@@ -3,6 +3,7 @@ class_name Ball
 
 var MainInstances = ResourceLoader.MainInstances
 
+var last_touch = null
 var max_acceleration = 1.06
 var max_speed = 150
 var speed = 90
@@ -28,12 +29,14 @@ func reset_position():
 func reset():
 	reset_position()
 	velocity = Vector2.ZERO
+	last_touch = null
 
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if not collision: return
 
 	if collision.collider.has_method("on_hit"): collision.collider.on_hit()
+	if collision.collider is Player: last_touch = collision.collider
 
 	velocity = velocity.bounce(collision.normal)
 	if sqrt(pow(velocity.x, 2) + pow(velocity.y, 2)) < max_speed:
