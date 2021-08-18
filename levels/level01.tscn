@@ -5,7 +5,7 @@
 [ext_resource path="res://ball/ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://utils/camera.tscn" type="PackedScene" id=4]
 
-[node name="Node2D" type="Node2D"]
+[node name="Level01" type="Node2D"]
 
 [node name="Net0" parent="." instance=ExtResource( 1 )]
 position = Vector2( 80, 24 )
