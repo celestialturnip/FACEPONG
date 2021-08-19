@@ -67,6 +67,7 @@ Utils="*res://utils/utils.gd"
 ResourceLoader="*res://utils/resource_loader.gd"
 Signals="*res://utils/signals.gd"
 SoundFX="*res://sounds/soundFX.tscn"
+PauseMenu="*res://menus/pause_menu.tscn"
 
 [display]
 

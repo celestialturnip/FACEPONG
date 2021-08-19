@@ -1,0 +1,83 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://fonts/zx_spectrum/7px.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/zx_spectrum/14px.tres" type="DynamicFont" id=2]
+[ext_resource path="res://menus/pause_menu.gd" type="Script" id=3]
+
+[node name="PauseMenu" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.101961, 0.00784314, 0.054902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer"]
+margin_left = 37.0
+margin_top = 62.0
+margin_right = 123.0
+margin_bottom = 130.0
+
+[node name="Title" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_right = 86.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 2 )
+text = "Paused"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 20.0
+margin_right = 86.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResumeLabel" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 86.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 1 )
+text = "Resume"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartLabel" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 48.0
+margin_right = 86.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 1 )
+text = "Restart"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitLabel" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 60.0
+margin_right = 86.0
+margin_bottom = 68.0
+custom_fonts/font = ExtResource( 1 )
+text = "Exit"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
