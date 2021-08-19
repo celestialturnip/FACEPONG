@@ -1,43 +1,50 @@
 extends Control
 
 onready var face_texture = $CenterContainer/VBoxContainer/HBoxContainer/TextureRect
-onready var level_label = $CenterContainer/VBoxContainer/LevelLabel
-onready var options_label = $CenterContainer/VBoxContainer/OptionsLabel
 
 var levels = ["1", "2", "3", "4"]
 var level_idx = 0 
 
-onready var labels = [level_label, options_label]
+onready var labels = [$CenterContainer/VBoxContainer/LevelLabel, $CenterContainer/VBoxContainer/OptionsLabel]
 var label_idx = 0
 
 func _ready():
-	labels[label_idx].add_color_override("font_color", Utils.colors["gold"])
+	toggle(labels[label_idx], true)
 
 func _process(_delta):
+	var current_label = labels[label_idx]
+
 	if Input.is_action_just_pressed("ui_accept"):
 		SoundFX.play("menu_accept.wav")
-		if labels[label_idx] == level_label:
-			assert(!get_tree().change_scene("res://levels/level0{idx}.tscn".format({"idx": levels[level_idx]})))
+		if label_idx == 0:
+			# warning-ignore:return_value_discarded
+			get_tree().change_scene("res://levels/level0{idx}.tscn".format({"idx": levels[level_idx]}))
 		else:
-			assert(!get_tree().change_scene("res://menus/options_menu.tscn"))
-	elif Input.is_action_just_pressed("ui_left"):
-		level_idx = (level_idx - 1) % len(levels)
-		update_level_label()
-	elif Input.is_action_just_pressed("ui_right"):
-		level_idx = (level_idx + 1) % len(levels)
-		update_level_label()
-	elif Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_up"):
-		clear_label()
+			# warning-ignore:return_value_discarded
+			get_tree().change_scene("res://menus/options_menu.tscn")
+		return
+
+	# Change label on level selection.
+	if label_idx == 0:
+		if Input.is_action_just_pressed("ui_left"):
+			level_idx = (level_idx - 1) % levels.size()
+		if Input.is_action_just_pressed("ui_right"):
+			level_idx = (level_idx + 1) % levels.size()
+		current_label.text = "LEVEL 0%s" % levels[level_idx]
+		
+	if Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_up"):
+		toggle(current_label, false)
 		label_idx = (label_idx + 1) % len(labels)
-		update_level_label()
+		toggle(labels[label_idx], true)
 
-func clear_label():
-	labels[label_idx].add_color_override("font_color", Utils.colors["white"])
-
-func update_level_label():
-	$CenterContainer/VBoxContainer/LevelLabel.text = "0" + levels[level_idx]
-	labels[label_idx].add_color_override("font_color", Utils.colors["gold"])
-	SoundFX.play("menu_navigation.wav")
+func toggle(label, on: bool):
+	if not on:
+		label.add_color_override("font_color", Utils.colors["white"])
+		label.text = label.text.capitalize()
+		SoundFX.play("menu_navigation.wav")
+	else:
+		label.add_color_override("font_color", Utils.colors["gold"])
+		label.text = label.text.to_upper()
 
 func _on_Timer_timeout():
 	face_texture.modulate = Utils.random_color()
