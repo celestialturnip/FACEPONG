@@ -133,3 +133,11 @@ I added a very basic options menu that you can access from start menu. I only ha
 
 With that in mind, I've made it a habit to publish at least one commit per day on this project, no matter how small they are. Even with small commits, there are things I'm learning. For example, yesterday I wasn't sure how I can enable/disable the CanvasLayer that I have the CRT texture on. I noticed in the AutoLoad tab in Project Settings that each global node has an Enabled checkbox. I figured this must be a property I can manipulate, but it turns out, this just affects how you can access the node (e.g. `CRT` vs. `get_node("/root/CRT")`).
 
+# Day 12 - 2021/08/18
+I added the first powerup to the game: a red apple. Currently, if a ball collides with the apple, the last player to touch it receives one additional health. If no previous player had touched it (e.g. off a serve), no health is rewarded and the apple does not disappear.
+
+I also made a new spawnner, PowerupSpawnner, that will have a list of potential powerups to spawn along with the probability of their occurrence. For now, it just spawns the apple at some regular interval.
+
+I also spent some time thinking about the colour palette. I initally started with the [ZX Spectrum palette](https://lospec.com/palette-list/zx-spectrum). Howeve, many of my sprites are from Kenney's [1-Bit Pack](https://www.kenney.nl/assets/bit-pack), but I'm not sure what colour palette is used for it. It does introduce a few more colours: blue, yellow, green, red, brown, and a maroon. But I would like to unify all the colours in the game with just a single palette. However, one challenge I'm not sure how to solve is how can I test my changes out without manually replacing every colour in the game.
+
+I also thought a bit about what my fifth level should be. I initially thought I would make a boss level as a way to finish the demo. However, I wonder if this is even necessary - instead, perhaps I should just have a regular fifth level. This would be more similar to games like Bubble Bobble, where you would just simply play through all the levels.
