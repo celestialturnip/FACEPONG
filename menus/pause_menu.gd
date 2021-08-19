@@ -29,14 +29,17 @@ func _process(_delta: float) -> void:
 		toggle(labels[label_idx], false)
 		label_idx = (label_idx + 1) % labels.size()
 		toggle(labels[label_idx], true)
+		SoundFX.play("menu_navigation.wav")
 		
 	elif Input.is_action_just_pressed("ui_up"):
 		toggle(labels[label_idx], false)
 		label_idx = (label_idx - 1) % labels.size()
 		toggle(labels[label_idx], true)
+		SoundFX.play("menu_navigation.wav")
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		self.paused = !paused
+		SoundFX.play("menu_accept.wav")
 		match current_label.text:
 			"EXIT":
 				# warning-ignore:return_value_discarded
