@@ -11,7 +11,7 @@ onready var labels = [level_label, options_label]
 var label_idx = 0
 
 func _ready():
-	labels[label_idx].add_color_override("font_color", Color.gold)
+	labels[label_idx].add_color_override("font_color", Utils.colors["gold"])
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
@@ -32,12 +32,12 @@ func _process(_delta):
 		update_level_label()
 
 func clear_label():
-	labels[label_idx].add_color_override("font_color", Color.whitesmoke)
+	labels[label_idx].add_color_override("font_color", Utils.colors["white"])
 
 func update_level_label():
 	$CenterContainer/VBoxContainer/LevelLabel.text = "0" + levels[level_idx]
-	labels[label_idx].add_color_override("font_color", Color.gold)
+	labels[label_idx].add_color_override("font_color", Utils.colors["gold"])
 	SoundFX.play("menu_navigation.wav")
 
 func _on_Timer_timeout():
-	face_texture.modulate = Utils.get_random_color()
+	face_texture.modulate = Utils.random_color()

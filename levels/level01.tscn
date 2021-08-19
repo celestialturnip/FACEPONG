@@ -32,23 +32,19 @@ position = Vector2( 80, 96 )
 
 [node name="Player2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 80, 168 )
-color = Color( 1, 0.988235, 0.211765, 1 )
 is_human = true
 
 [node name="Player3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 8, 98 )
 rotation = 1.5708
-color = Color( 1, 0.25098, 0.988235, 1 )
 
 [node name="Player0" parent="." instance=ExtResource( 2 )]
 position = Vector2( 80, 24 )
 rotation = 3.14159
-color = Color( 1, 0.2, 0.109804, 1 )
 
 [node name="Player1" parent="." instance=ExtResource( 2 )]
 position = Vector2( 152, 96 )
 rotation = -1.5708
-color = Color( 0, 0.168627, 0.984314, 1 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 4 )]
 

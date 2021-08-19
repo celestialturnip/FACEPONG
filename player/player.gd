@@ -4,7 +4,6 @@ class_name Player
 var MainInstances = ResourceLoader.MainInstances
 
 var acceleration = 75
-export(Color) var color
 var friction = 0.30
 var health = 3
 var max_speed = 450
@@ -18,7 +17,8 @@ onready var starting_position = position
 onready var speed = 250 if is_human else int(rand_range(350, 450))
 
 func _ready():
-	$Sprite.modulate = color
+	var colors = {0: "#FFEC27", 90: "#FF004D", 180: "#29ADFF", -90: "008751"}
+	$Sprite.modulate = colors[int(round(rotation_degrees))]
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):

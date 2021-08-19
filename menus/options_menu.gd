@@ -3,7 +3,7 @@ extends Control
 onready var crt_label = $VBoxContainer/CRTLabel
 
 func _ready():
-	crt_label.add_color_override("font_color", Color.gold)
+	crt_label.add_color_override("font_color", Utils.colors["gold"])
 	crt_label.text = "CRT: " + ("ON" if CRT.is_active() else "OFF")
 
 func _process(delta):

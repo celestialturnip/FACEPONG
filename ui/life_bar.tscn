@@ -4,6 +4,7 @@
 [ext_resource path="res://ui/life_bar.gd" type="Script" id=2]
 
 [node name="LifeBar" type="TextureRect"]
+modulate = Color( 1, 0.945098, 0.909804, 1 )
 margin_right = 9.0
 margin_bottom = 4.0
 texture = ExtResource( 1 )

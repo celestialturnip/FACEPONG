@@ -4,6 +4,7 @@
 [ext_resource path="res://levels/obstacles/tree-single.gd" type="Script" id=2]
 
 [node name="TreeSingle" type="StaticBody2D"]
+modulate = Color( 0, 0.529412, 0.317647, 1 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

@@ -7,6 +7,7 @@
 radius = 6.0
 
 [node name="Ghost" type="KinematicBody2D"]
+modulate = Color( 0.760784, 0.764706, 0.780392, 1 )
 collision_layer = 16
 collision_mask = 2
 script = ExtResource( 2 )

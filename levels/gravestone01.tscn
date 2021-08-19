@@ -8,6 +8,7 @@ radius = 5.0
 height = 4.0
 
 [node name="Gravestone1" type="StaticBody2D"]
+modulate = Color( 0.760784, 0.764706, 0.780392, 1 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
