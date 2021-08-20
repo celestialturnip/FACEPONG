@@ -174,3 +174,10 @@ There are some other approaches I could have used:
 - Instantiate the PauseMenu on each level
 
 But, for now, I just ended up going through with what I got working. It's not the greatest but it's good enough.
+
+# Day 14 - 2021/08/20
+I added the fifth level: one where there's a face in the middle that gets red, large, and angry if it hasn't been hit by a ball in a while. I'm not super thrilled with it - I think it might be a bit boring. But I was really struggling yesterday to come up with something that I felt was pretty good that wasn't this. In the end, I decided just to go through with it, and I can always come to it later if needed.
+
+This marks the end of the second week since I've started on this game. As I said before, I won't be adding any more content at this point. I went through my backlog of tasks for this game and re-prioritized each into three categories: must have, should have, or could have. This is all based on a 1-month timeline, so the "must have" tasks should be done by end of week 3, and the "should have" tasks should be done by end of week 4. 
+
+At the moment, most of my "must have" tasks are polish-related: fixing bugs, adding transitions between levels, adding a lose screen, adding a win screen, and so forth.
