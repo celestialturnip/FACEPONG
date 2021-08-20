@@ -141,3 +141,36 @@ I also made a new spawnner, PowerupSpawnner, that will have a list of potential 
 I also spent some time thinking about the colour palette. I initally started with the [ZX Spectrum palette](https://lospec.com/palette-list/zx-spectrum). Howeve, many of my sprites are from Kenney's [1-Bit Pack](https://www.kenney.nl/assets/bit-pack), but I'm not sure what colour palette is used for it. It does introduce a few more colours: blue, yellow, green, red, brown, and a maroon. But I would like to unify all the colours in the game with just a single palette. However, one challenge I'm not sure how to solve is how can I test my changes out without manually replacing every colour in the game.
 
 I also thought a bit about what my fifth level should be. I initially thought I would make a boss level as a way to finish the demo. However, I wonder if this is even necessary - instead, perhaps I should just have a regular fifth level. This would be more similar to games like Bubble Bobble, where you would just simply play through all the levels.
+
+# Day 13 - 2021/08/19
+I updated the in-game colour palette to use [PICO-8](https://lospec.com/palette-list/pico-8), added a pause menu, and refactored the existing menus to match the pause menu style.
+
+In terms of choosing a colour palette, what I did was:
+1. Search on [Lospec](https://lospec.com/palette-list) for all palettes with max 16 colours, sorted by downloads.
+2. Hand pick a few palettes that seem promising: for me, these were [PICO-8](https://lospec.com/palette-list/pico-8), [Island Joy](https://lospec.com/palette-list/island-joy-16), [Bubblegum](https://lospec.com/palette-list/bubblegum-16) and [Vanilla Milkshake](https://lospec.com/palette-list/vanilla-milkshake).
+3. Open up a screenshot of my game in Aseprite and make a new frame for each palette.
+4. For each palette, make a new frame, and replace the 6 or 7 colours in the screenshot with their replacement from palette. This was easy to do by simply clicking Shift + R, and copy-pasting the new value.
+
+Once I had a frame for each palette, I simply went through each of them, compared them, and picked the one that I thought was the best.
+
+As for the pause menu, the reference project I was using had implemented in a slightly different way. I didn't realize this until after I had finished my implementation and was debugging it trying to figure out why it's not working. Here's how my reference project did it:
+
+World (Node)
+- Camera
+- UI (CanvasLayer)
+  - PauseMenu (ColorRect)
+
+When loaded, the World node is then responsible for determing what level should be loaded on the screen. This way, the UI node that contains the PauseMenu is always present as long as a level is loaded. Otherwise, if you're on the StartMenu for example, the UI node and PauseMenu won't be accessible.
+
+The way I implemented it (or I should say, the way I got it working) was by adding a global singleton:
+
+PauseMenu (CanvasLayer)
+- ColorRect
+
+Then in PauseMenu.gd, I simply have some logic that determines if the current scene is a level or not: `get_tree().get_nodes_in_group("Player").size() > 0`.
+
+There are some other approaches I could have used:
+- Refactor my code to create a generic World node that controls which Levels gets instanced, similar to the reference project
+- Instantiate the PauseMenu on each level
+
+But, for now, I just ended up going through with what I got working. It's not the greatest but it's good enough.
