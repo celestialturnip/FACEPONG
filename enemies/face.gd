@@ -10,7 +10,7 @@ func on_hit():
 	$Timer.start(time_until_angry)
 	match state:
 		"happy":
-			if $Tween.is_active(): return
+			if $Tween.get_runtime() > 0.25: return
 			SoundFX.play("player_hit.wav")
 			$Tween.interpolate_property(self, "scale", Vector2(1.3, 1.3), Vector2(1,1), .3, Tween.TRANS_BACK, Tween.EASE_IN)
 			$Tween.start()
