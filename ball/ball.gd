@@ -24,7 +24,7 @@ func serve():
 	velocity = Vector2(rand_range(-0.3, .3), rand_range(-1, 1)).normalized() * speed
 
 func reset_position():
-	position = Vector2(Utils.virtual_width / 2, Utils.virtual_height / 2)
+	position = Vector2(Utils.virtual_width / 4, Utils.virtual_height / 4)
 
 func reset():
 	reset_position()

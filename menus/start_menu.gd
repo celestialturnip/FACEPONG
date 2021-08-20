@@ -2,7 +2,7 @@ extends Control
 
 onready var face_texture = $CenterContainer/VBoxContainer/HBoxContainer/TextureRect
 
-var levels = ["1", "2", "3", "4"]
+var levels = ["1", "2", "3", "4", "5"]
 var level_idx = 0 
 
 onready var labels = [$CenterContainer/VBoxContainer/LevelLabel, $CenterContainer/VBoxContainer/OptionsLabel]
