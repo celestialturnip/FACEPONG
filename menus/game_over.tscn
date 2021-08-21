@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://fonts/zx_spectrum/14px.tres" type="DynamicFont" id=1]
 [ext_resource path="res://fonts/zx_spectrum/7px.tres" type="DynamicFont" id=2]
 [ext_resource path="res://menus/game_over.gd" type="Script" id=3]
+[ext_resource path="res://ui/title_gap.tscn" type="PackedScene" id=4]
 
 [node name="GameOverScreen" type="CenterContainer"]
 anchor_right = 1.0
@@ -24,11 +25,7 @@ margin_bottom = 16.0
 custom_fonts/font = ExtResource( 1 )
 text = "Game Over"
 
-[node name="Control" type="Control" parent="VBoxContainer"]
-margin_top = 20.0
-margin_right = 128.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 0, 12 )
+[node name="TitleGap" parent="VBoxContainer" instance=ExtResource( 4 )]
 
 [node name="RestartLevel" type="Label" parent="VBoxContainer"]
 margin_top = 36.0

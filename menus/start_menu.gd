@@ -2,9 +2,6 @@ extends Control
 
 onready var face_texture = $CenterContainer/VBoxContainer/HBoxContainer/TextureRect
 
-var levels = ["1", "2", "3", "4", "5"]
-var level_idx = 0 
-
 onready var labels = [$CenterContainer/VBoxContainer/LevelLabel, $CenterContainer/VBoxContainer/OptionsLabel]
 var label_idx = 0
 
@@ -16,24 +13,14 @@ func _process(_delta):
 
 	if Input.is_action_just_pressed("ui_accept"):
 		SoundFX.play("menu_accept.wav")
-		if label_idx == 0:
-			# warning-ignore:return_value_discarded
-			var level_scene_path = "res://levels/level0{idx}.tscn".format({"idx": levels[level_idx]})
-			Utils.previous_level_scene_path = level_scene_path
-			get_tree().change_scene(level_scene_path)
-		else:
-			# warning-ignore:return_value_discarded
-			get_tree().change_scene("res://menus/options_menu.tscn")
-		return
+		match current_label.name:
+			"LevelLabel":
+				# warning-ignore:return_value_discarded
+				get_tree().change_scene("res://menus/level_selection.tscn")
+			"OptionsLabel":
+				# warning-ignore:return_value_discarded
+				get_tree().change_scene("res://menus/options_menu.tscn")
 
-	# Change label on level selection.
-	if label_idx == 0:
-		if Input.is_action_just_pressed("ui_left"):
-			level_idx = (level_idx - 1) % levels.size()
-		if Input.is_action_just_pressed("ui_right"):
-			level_idx = (level_idx + 1) % levels.size()
-		current_label.text = "LEVEL 0%s" % levels[level_idx]
-		
 	if Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_up"):
 		toggle(current_label, false)
 		label_idx = (label_idx + 1) % len(labels)
