@@ -1,12 +1,19 @@
 extends Control
 
-onready var face_texture = $CenterContainer/VBoxContainer/HBoxContainer/TextureRect
-
-onready var labels = [$CenterContainer/VBoxContainer/LevelLabel, $CenterContainer/VBoxContainer/OptionsLabel]
 var label_idx = 0
+
+onready var face_texture = $CenterContainer/VBoxContainer/HBoxContainer/FaceTexture
+onready var labels = [
+	$CenterContainer/VBoxContainer/LevelLabel,
+	$CenterContainer/VBoxContainer/SelectFaceLabel,
+	$CenterContainer/VBoxContainer/OptionsLabel
+]
 
 func _ready():
 	toggle(labels[label_idx], true)
+	face_texture.modulate = Utils.colour_dict[Utils.player_settings["colour"]]
+	var texture = load("res://player/face_{emotion}.png".format({"emotion": Utils.player_settings["emotion"]}))
+	face_texture.set_texture(texture)
 
 func _process(_delta):
 	var current_label = labels[label_idx]
@@ -17,14 +24,22 @@ func _process(_delta):
 			"LevelLabel":
 				# warning-ignore:return_value_discarded
 				get_tree().change_scene("res://menus/level_selection.tscn")
+			"SelectFaceLabel":
+				# warning-ignore:return_value_discarded
+				get_tree().change_scene("res://menus/face_selection.tscn")
 			"OptionsLabel":
 				# warning-ignore:return_value_discarded
 				get_tree().change_scene("res://menus/options_menu.tscn")
 
-	if Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("ui_down"):
 		toggle(current_label, false)
 		label_idx = (label_idx + 1) % len(labels)
 		toggle(labels[label_idx], true)
+	elif Input.is_action_just_pressed("ui_up"):
+		toggle(current_label, false)
+		label_idx = (label_idx - 1) % len(labels)
+		toggle(labels[label_idx], true)
+
 
 func toggle(label, on: bool):
 	if not on:
@@ -32,8 +47,5 @@ func toggle(label, on: bool):
 		label.text = label.text.capitalize()
 		SoundFX.play("menu_navigation.wav")
 	else:
-		label.add_color_override("font_color", Utils.colors["gold"])
+		label.add_color_override("font_color", Utils.colors["orange"])
 		label.text = label.text.to_upper()
-
-func _on_Timer_timeout():
-	face_texture.modulate = Utils.random_color()

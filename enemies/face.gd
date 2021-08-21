@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var time_until_angry = 9
+var time_until_angry = 2
 var state = "happy"
 
 func _ready() -> void:

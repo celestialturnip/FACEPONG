@@ -19,7 +19,10 @@ onready var speed = 250 if is_human else int(rand_range(350, 450))
 func _ready():
 	var colors = {0: "#FFEC27", 90: "#FF004D", 180: "#29ADFF", -90: "008751"}
 	$Sprite.modulate = colors[int(round(rotation_degrees))]
-	if is_human: MainInstances.Player = self
+	if is_human:
+		MainInstances.Player = self
+		$Sprite.modulate = Utils.colour_dict[Utils.player_settings["colour"]]
+		$Sprite.set_texture(load("res://player/face_{emotion}.png".format({"emotion": Utils.player_settings["emotion"]})))
 
 func _exit_tree():
 	if is_human: MainInstances.Player = null

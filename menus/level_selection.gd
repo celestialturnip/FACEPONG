@@ -29,6 +29,7 @@ func _process(_delta: float) -> void:
 		SoundFX.play("menu_accept.wav")
 		var level_scene_path = "res://levels/{name}.tscn".format({"name": current_label.name.to_lower()})
 		Utils.previous_level_scene_path = level_scene_path
+		# warning-ignore:return_value_discarded
 		get_tree().change_scene(level_scene_path)
 
 func toggle(label, on: bool):

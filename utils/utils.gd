@@ -4,7 +4,27 @@ var bg_color = "#1a020e"
 # https://lospec.com/palette-list/pico-8
 var palette = ['#1D2B53', '#7E2553', '#008751', '#AB5236', '#5F574F', '#C2C3C7', '#FFF1E8', '#FF004D', '#FFA300', '#FFEC27', '#00E436', '#29ADFF', '#83769C', '#FF77A8', '#FFCCAA']
 var car_palette = palette.slice(1, len(palette) - 1)
-var colors = {"gold": Color("#FFA300"), "white": Color("#FFF1E8"), "red": Color("#FF004D"), "yellow": Color("FFEC27")}
+var colors = {"gold": Color("#FFA300"), "orange": Color("#FFA300"), "white": Color("#FFF1E8"), "red": Color("#FF004D"), "yellow": Color("FFEC27")}
+
+var colour_dict = {
+	"navy": Color("#1D2B53"),
+	"purple": Color("#7E2553"),
+	"green": Color("#008751"),
+	"olive": Color("#AB5236"),
+	"gray": Color("#5F574F"),
+	"silver": Color("#C2C3C7"),
+	"red": Color("#FF004D"),
+	"orange": Color("#FFA300"),
+	"yellow": Color("#FFEC27"),
+	"lime": Color("#00E436"),
+	"dodger": Color("29ADFF"),
+	"thistle": Color("#83769C"),
+	"violet": Color("#FF77A8"),
+	"wood": Color("FFCCAA")
+}
+
+var player_settings = {"emotion": "happy", "colour": "yellow"}
+
 var previous_level_scene_path = null
 var virtual_height = ProjectSettings.get("display/window/size/height")
 var virtual_width = ProjectSettings.get("display/window/size/width")
