@@ -63,11 +63,11 @@ config/icon="res://icon.png"
 [autoload]
 
 PauseMenu="*res://menus/pause_menu.tscn"
-CRT="*res://ui/CRT.tscn"
-Utils="*res://utils/utils.gd"
 ResourceLoader="*res://utils/resource_loader.gd"
+Utils="*res://utils/utils.gd"
 Signals="*res://utils/signals.gd"
 SoundFX="*res://sounds/soundFX.tscn"
+CRT="*res://ui/CRT.tscn"
 
 [display]
 

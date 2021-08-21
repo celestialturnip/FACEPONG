@@ -17,4 +17,4 @@ func play(file_name, pitch_scale = 1, volume_db = 0):
 			player.stream = cache[file_name]
 			player.play()
 			return
-	print(OS.get_time(), "Error: too many sounds so couldnt' play:", file_name)
+	print(OS.get_system_time_msecs() , "Error: too many sounds so couldnt' play:", file_name)

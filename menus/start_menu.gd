@@ -18,7 +18,9 @@ func _process(_delta):
 		SoundFX.play("menu_accept.wav")
 		if label_idx == 0:
 			# warning-ignore:return_value_discarded
-			get_tree().change_scene("res://levels/level0{idx}.tscn".format({"idx": levels[level_idx]}))
+			var level_scene_path = "res://levels/level0{idx}.tscn".format({"idx": levels[level_idx]})
+			Utils.previous_level_scene_path = level_scene_path
+			get_tree().change_scene(level_scene_path)
 		else:
 			# warning-ignore:return_value_discarded
 			get_tree().change_scene("res://menus/options_menu.tscn")

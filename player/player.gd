@@ -19,6 +19,10 @@ onready var speed = 250 if is_human else int(rand_range(350, 450))
 func _ready():
 	var colors = {0: "#FFEC27", 90: "#FF004D", 180: "#29ADFF", -90: "008751"}
 	$Sprite.modulate = colors[int(round(rotation_degrees))]
+	if is_human: MainInstances.Player = self
+
+func _exit_tree():
+	if is_human: MainInstances.Player = null
 
 func _process(_delta):
 	if is_human:
@@ -58,6 +62,8 @@ func on_hit():
 
 func on_goal_allowed():
 	health -= 1
+	if health == 0 and is_human:
+		Signals.emit("player_died")
 	if is_human:
 		SoundFX.play("goal_allowed.wav")
 	else:
