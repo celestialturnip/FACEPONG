@@ -181,3 +181,8 @@ I added the fifth level: one where there's a face in the middle that gets red, l
 This marks the end of the second week since I've started on this game. As I said before, I won't be adding any more content at this point. I went through my backlog of tasks for this game and re-prioritized each into three categories: must have, should have, or could have. This is all based on a 1-month timeline, so the "must have" tasks should be done by end of week 3, and the "should have" tasks should be done by end of week 4. 
 
 At the moment, most of my "must have" tasks are polish-related: fixing bugs, adding transitions between levels, adding a lose screen, adding a win screen, and so forth.
+
+# Day 15 - 2021/08/21
+I had a very productive day yesterday: fixed two bugs, added a "game over" screen, added a "level selection" screen", and added a "face selection" screen.
+
+Everything I implemented is fairly basic - the level selection screen just lists the levels in numeric order. There's no fancy overworld where a character travels to and from different levels such as in Overcooked 2 or Super Hiking League DX. I definitely feel that with a one-month constraint, I don't really have time to explore different ideas since that puts the project at risk of not being complete by the end of the month. That's something I want to keep in mind for future months.
