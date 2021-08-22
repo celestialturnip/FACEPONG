@@ -1,9 +1,60 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/zx_spectrum/14px.tres" type="DynamicFont" id=2]
 [ext_resource path="res://player/face_happy.png" type="Texture" id=3]
 [ext_resource path="res://menus/start_menu.gd" type="Script" id=6]
 [ext_resource path="res://fonts/zx_spectrum/7px.tres" type="DynamicFont" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "SelectFaceLabel"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/VBoxContainer/LevelLabel:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6, 1, 1.4, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 36 ), Vector2( -3, 36 ), Vector2( -3, 36 ), Vector2( 0, 36 ), Vector2( 3, 36 ), Vector2( 3, 36 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "OptionsLabel"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/VBoxContainer/OptionsLabel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6, 1, 1.4, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 60 ), Vector2( -3, 60 ), Vector2( -3, 60 ), Vector2( 0, 60 ), Vector2( 3, 60 ), Vector2( 3, 60 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "SelectFaceLabel"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/VBoxContainer/SelectFaceLabel:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6, 1, 1.4, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 48 ), Vector2( -3, 48 ), Vector2( -3, 48 ), Vector2( 0, 48 ), Vector2( 3, 48 ), Vector2( 3, 48 ) ]
+}
 
 [node name="StartMenu" type="Control"]
 anchor_right = 1.0
@@ -100,6 +151,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
-autostart = true
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "LevelLabel"
+anims/LevelLabel = SubResource( 1 )
+anims/OptionsLabel = SubResource( 3 )
+anims/SelectFaceLabel = SubResource( 2 )

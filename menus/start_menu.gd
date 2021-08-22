@@ -1,7 +1,7 @@
 extends Control
 
 var label_idx = 0
-
+var previous_animation_position = 0
 onready var face_texture = $CenterContainer/VBoxContainer/HBoxContainer/FaceTexture
 onready var labels = [
 	$CenterContainer/VBoxContainer/LevelLabel,
@@ -46,6 +46,13 @@ func toggle(label, on: bool):
 		label.add_color_override("font_color", Utils.colors["white"])
 		label.text = label.text.capitalize()
 		SoundFX.play("menu_navigation.wav")
+		previous_animation_position = $AnimationPlayer.current_animation_position
+		$AnimationPlayer.seek(0, true)
+		$AnimationPlayer.stop()
 	else:
 		label.add_color_override("font_color", Utils.colors["orange"])
+		# Start slide.
 		label.text = label.text.to_upper()
+		$AnimationPlayer.play(label.name)
+		$AnimationPlayer.seek(previous_animation_position, true)
+
