@@ -40,6 +40,7 @@ func _process(_delta: float) -> void:
 		toggle(labels[label_idx], true)
 	
 	if Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
+		SoundFX.play("menu_navigation.wav")
 		var left = Input.is_action_just_pressed("ui_left")
 		match current_label.name:
 			"ColourLabel":

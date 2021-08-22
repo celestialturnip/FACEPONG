@@ -32,6 +32,11 @@ func _process(_delta: float) -> void:
 		# warning-ignore:return_value_discarded
 		get_tree().change_scene(level_scene_path)
 
+	if Input.is_action_just_pressed("ui_cancel"):
+		SoundFX.play("menu_navigation.wav")
+		# warning-ignore:return_value_discarded
+		get_tree().change_scene("res://menus/start_menu.tscn")
+
 func toggle(label, on: bool):
 	if not on:
 		label.add_color_override("font_color", Utils.colors["white"])
