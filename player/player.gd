@@ -23,6 +23,7 @@ func _ready():
 		MainInstances.Player = self
 		$Sprite.modulate = Utils.colour_dict[Utils.player_settings["colour"]]
 		$Sprite.set_texture(load("res://player/face_{emotion}.png".format({"emotion": Utils.player_settings["emotion"]})))
+	Signals.emit("player_ready")
 
 func _exit_tree():
 	if is_human: MainInstances.Player = null
