@@ -186,3 +186,8 @@ At the moment, most of my "must have" tasks are polish-related: fixing bugs, add
 I had a very productive day yesterday: fixed two bugs, added a "game over" screen, added a "level selection" screen", and added a "face selection" screen.
 
 Everything I implemented is fairly basic - the level selection screen just lists the levels in numeric order. There's no fancy overworld where a character travels to and from different levels such as in Overcooked 2 or Super Hiking League DX. I definitely feel that with a one-month constraint, I don't really have time to explore different ideas since that puts the project at risk of not being complete by the end of the month. That's something I want to keep in mind for future months.
+
+# Day 16 - 2021/08/22
+I added some more UI polish: the label that you are currently on in the UI slides, some sound effects to other menus/screens, and updated each player's life bar to match their player colour.
+
+I did quite a lot of playtesting yesterday and I definitely need to reduce the difficulty. I also need to improve the control of the player - getting the player to move to exactly where you want is not ideal. I've gotten used to it by simply tapping the arrow keys lightly but a new player wouldn't know how to do it. I also have to replace a lot debug-only features (e.g. ball always spawns in the top-left corner) with a real feature (e.g. the player who just allowed a goal gets to serve).
