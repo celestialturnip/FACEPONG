@@ -22,7 +22,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 36 ), Vector2( -3, 36 ), Vector2( -3, 36 ), Vector2( 0, 36 ), Vector2( 3, 36 ), Vector2( 3, 36 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "OptionsLabel"
 length = 2.0
 loop = true
@@ -39,8 +39,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 60 ), Vector2( -3, 60 ), Vector2( -3, 60 ), Vector2( 0, 60 ), Vector2( 3, 60 ), Vector2( 3, 60 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "SelectFaceLabel"
+[sub_resource type="Animation" id=3]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -154,5 +153,5 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "LevelLabel"
 anims/LevelLabel = SubResource( 1 )
-anims/OptionsLabel = SubResource( 3 )
-anims/SelectFaceLabel = SubResource( 2 )
+anims/OptionsLabel = SubResource( 2 )
+anims/SelectFaceLabel = SubResource( 3 )
