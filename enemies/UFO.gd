@@ -36,5 +36,4 @@ func pick_target():
 	return Vector2(0 if randi () % 2 else Utils.virtual_width, rand_range(0, Utils.virtual_height))
 
 func _on_VisibilityNotifier2D_viewport_exited(_viewport):
-	print("leaving at :", OS.get_time())
 	queue_free()

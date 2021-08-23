@@ -13,6 +13,7 @@ var velocity = Vector2.ZERO
 export(bool) var is_human
 
 onready var ball = MainInstances.Ball
+onready var serving_position = $ServingPosition.global_position
 onready var starting_position = position
 onready var speed = 250 if is_human else int(rand_range(350, 450))
 

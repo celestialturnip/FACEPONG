@@ -5,29 +5,38 @@ var MainInstances = ResourceLoader.MainInstances
 
 var last_touch = null
 var max_acceleration = 1.06
-var max_speed = 150
-var speed = 90
+var max_speed = 190
+var server = null
+var speed = 130
 var velocity = Vector2.ZERO
 
 func _ready():
 	MainInstances.Ball = self
-	reset()
+	# warning-ignore:return_value_discarded
+	Signals.connect("player_ready", self, "_on_player_ready")
+
+func _on_player_ready():
+	if MainInstances.Player:
+		server = MainInstances.Player
+		position = server.serving_position
 
 func _exit_tree():
 	MainInstances.Ball = null
 
 func _process(_delta):
-	if Input.is_action_just_pressed("reset"): reset()
-	if Input.is_action_just_pressed("serve"): serve()
+	if Input.is_action_just_pressed("serve") and (not velocity):
+		serve()
 
 func serve():
-	velocity = Vector2(rand_range(-0.3, .3), rand_range(-1, 1)).normalized() * speed
-
-func reset_position():
-	position = Vector2(Utils.virtual_width / 4, Utils.virtual_height / 4)
+	var random_player = Utils.get_random_player(server)
+	var serve_direction = server.position.direction_to(random_player.position)
+	# Add some variation to avoid AIs doing a complete straight serve to the other AI.
+	serve_direction += Vector2(rand_range(-0.2, 0.2), rand_range(-0.2, 0.2))
+	serve_direction.normalized()
+	velocity = serve_direction * speed
 
 func reset():
-	reset_position()
+	position = server.serving_position
 	velocity = Vector2.ZERO
 	last_touch = null
 

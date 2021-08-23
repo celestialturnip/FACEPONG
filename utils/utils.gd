@@ -40,6 +40,12 @@ func _on_player_died():
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://menus/game_over.tscn")
 
+func get_random_player(exclude = null):
+	var random_player = random_choice(get_tree().get_nodes_in_group("Player"))
+	while random_player == exclude:
+		random_player = random_choice(get_tree().get_nodes_in_group("Player"))
+	return random_player
+
 func random_color():
 	return random_choice(palette)
 

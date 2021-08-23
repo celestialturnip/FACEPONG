@@ -23,7 +23,6 @@ func _on_player_ready():
 func _on_BallDetector_body_entered(body):
 	if !(body is Ball): return
 	Signals.emit("ball_entered_net")
-	body.reset()
 
 	player.on_goal_allowed()
 	$LifeBar.set_health(player.health)
@@ -31,3 +30,9 @@ func _on_BallDetector_body_entered(body):
 		player.queue_free()
 		middle_post.enable()
 		$BallDetector.queue_free()
+
+	if player.health == 0:
+		body.server = Utils.get_random_player(player)
+	else:
+		body.server = player
+	body.reset()

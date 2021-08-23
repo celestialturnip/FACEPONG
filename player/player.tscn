@@ -21,3 +21,6 @@ visible = false
 shape = SubResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="ServingPosition" type="Position2D" parent="."]
+position = Vector2( 0, -16 )
