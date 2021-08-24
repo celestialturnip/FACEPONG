@@ -36,6 +36,7 @@ margin_right = 86.0
 margin_bottom = 24.0
 
 [node name="Title" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer"]
+modulate = Color( 1, 0.945098, 0.909804, 1 )
 margin_top = 28.0
 margin_right = 86.0
 margin_bottom = 44.0

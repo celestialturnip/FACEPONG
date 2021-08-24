@@ -82,6 +82,7 @@ margin_bottom = 16.0
 custom_constants/separation = -2
 
 [node name="FACEPO" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 0.945098, 0.909804, 1 )
 margin_right = 72.0
 margin_bottom = 16.0
 custom_fonts/font = ExtResource( 2 )
@@ -101,6 +102,7 @@ __meta__ = {
 }
 
 [node name="NG" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 0.945098, 0.909804, 1 )
 margin_left = 84.0
 margin_right = 114.0
 margin_bottom = 16.0

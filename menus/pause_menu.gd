@@ -10,7 +10,7 @@ onready var labels = [
 ]
 
 func _ready() -> void:
-	toggle(labels[label_idx], true)
+	Utils.toggle(labels[label_idx], true)
 
 func set_paused(value):
 	paused = value
@@ -26,14 +26,14 @@ func _process(_delta: float) -> void:
 
 	var current_label = labels[label_idx]
 	if Input.is_action_just_pressed("ui_down"):
-		toggle(labels[label_idx], false)
+		Utils.toggle(labels[label_idx], false)
 		label_idx = (label_idx + 1) % labels.size()
-		toggle(labels[label_idx], true)
+		Utils.toggle(labels[label_idx], true)
 
 	elif Input.is_action_just_pressed("ui_up"):
-		toggle(labels[label_idx], false)
+		Utils.toggle(labels[label_idx], false)
 		label_idx = (label_idx - 1) % labels.size()
-		toggle(labels[label_idx], true)
+		Utils.toggle(labels[label_idx], true)
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		self.paused = !paused
@@ -48,12 +48,3 @@ func _process(_delta: float) -> void:
 				get_tree().change_scene("res://levels/level01.tscn")
 			"RESUME":
 				pass
-
-func toggle(label, on: bool):
-	if not on:
-		label.add_color_override("font_color", Utils.colors["white"])
-		label.text = label.text.capitalize()
-		SoundFX.play("menu_navigation.wav")
-	else:
-		label.add_color_override("font_color", Utils.colors["gold"])
-		label.text = label.text.to_upper()

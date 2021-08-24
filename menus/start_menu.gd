@@ -43,14 +43,14 @@ func _process(_delta):
 
 func toggle(label, on: bool):
 	if not on:
-		label.add_color_override("font_color", Utils.colors["white"])
+		label.add_color_override("font_color", Utils.colour_dict["lace"])
 		label.text = label.text.capitalize()
 		SoundFX.play("menu_navigation.wav")
 		previous_animation_position = $AnimationPlayer.current_animation_position
 		$AnimationPlayer.seek(0, true)
 		$AnimationPlayer.stop()
 	else:
-		label.add_color_override("font_color", Utils.colors["orange"])
+		label.add_color_override("font_color", Utils.colour_dict["orange"])
 		# Start slide.
 		label.text = label.text.to_upper()
 		$AnimationPlayer.play(label.name)

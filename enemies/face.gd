@@ -17,7 +17,7 @@ func on_hit():
 		"angry":
 			SoundFX.play("player_hit.wav")
 			$Tween.interpolate_property(self, "scale", scale * 1.2, Vector2(1,1), 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-			$Tween.interpolate_property(self, "modulate", Utils.colors["red"], Utils.colors["yellow"], 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+			$Tween.interpolate_property(self, "modulate", Utils.colour_dict["red"], Utils.colour_dict["yellow"], 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 			$Tween.start()
 			$Sprite.frame = 0
 			state = "happy"
@@ -31,7 +31,7 @@ func become_angry():
 	match state:
 		"happy":
 			$Tween.interpolate_property(self, "scale", Vector2(1,1), Vector2(2,2), 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-			$Tween.interpolate_property(self, "modulate", Utils.colors["yellow"], Utils.colors["red"], 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+			$Tween.interpolate_property(self, "modulate", Utils.colour_dict["yellow"], Utils.colour_dict["red"], 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 			$Tween.start()
 			$Sprite.frame = 1
 			state = "angry"
