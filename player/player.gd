@@ -4,6 +4,7 @@ class_name Player
 var MainInstances = ResourceLoader.MainInstances
 
 var acceleration = 75
+var colour
 var friction = 0.30
 var health = 3
 var max_speed = 450
@@ -18,13 +19,19 @@ onready var starting_position = position
 onready var speed = 250 if is_human else int(rand_range(350, 450))
 
 func _ready():
-	var colors = {0: "#FFEC27", 90: "#FF004D", 180: "#29ADFF", -90: "008751"}
-	$Sprite.modulate = colors[int(round(rotation_degrees))]
+	$Sprite.modulate = get_colour()
 	if is_human:
 		MainInstances.Player = self
-		$Sprite.modulate = Utils.colour_dict[Utils.player_settings["colour"]]
 		$Sprite.set_texture(load("res://player/face_{emotion}.png".format({"emotion": Utils.player_settings["emotion"]})))
 	Signals.emit("player_ready")
+
+func get_colour():
+	if is_human: return Utils.colour_dict[Utils.player_settings["colour"]]
+	var existing = Utils.get_player_colours()
+	var random_colour = Utils.get_random_colour()
+	while existing.has(random_colour):
+		random_colour = Utils.get_random_colour()
+	return random_colour
 
 func _exit_tree():
 	if is_human: MainInstances.Player = null

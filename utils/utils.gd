@@ -50,6 +50,15 @@ func get_random_player(exclude = null):
 		random_player = random_choice(get_tree().get_nodes_in_group("Player"))
 	return random_player
 
+func get_player_colours():
+	var colours = [colour_dict[player_settings["colour"]]]
+	for player in get_tree().get_nodes_in_group("Player"):
+		colours += [player.colour]
+	return colours
+
+func get_random_colour():
+	return colour_dict[random_choice(colour_dict.keys())]
+
 func random_choice(list):
 	return list[randi() % list.size()]
 
