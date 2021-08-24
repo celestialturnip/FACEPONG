@@ -19,18 +19,18 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 36.0
-margin_right = 124.0
+margin_left = 40.0
+margin_right = 120.0
 margin_bottom = 192.0
 
 [node name="PreTitleGap" parent="VBoxContainer" instance=ExtResource( 8 )]
-margin_right = 88.0
+margin_right = 80.0
 margin_bottom = 24.0
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 modulate = Color( 1, 0.945098, 0.909804, 1 )
 margin_top = 28.0
-margin_right = 88.0
+margin_right = 80.0
 margin_bottom = 44.0
 custom_fonts/font = ExtResource( 2 )
 text = "FACE"
@@ -38,30 +38,30 @@ align = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
 margin_top = 48.0
-margin_right = 88.0
+margin_right = 80.0
 margin_bottom = 64.0
 texture = ExtResource( 4 )
 stretch_mode = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 68.0
-margin_right = 88.0
-margin_bottom = 84.0
+margin_right = 80.0
+margin_bottom = 78.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LeftArrow" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
-margin_right = 16.0
-margin_bottom = 16.0
+margin_right = 12.0
+margin_bottom = 10.0
 texture = ExtResource( 7 )
 
 [node name="ColourLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
-margin_left = 20.0
-margin_top = 4.0
-margin_right = 68.0
-margin_bottom = 12.0
+margin_left = 16.0
+margin_top = 1.0
+margin_right = 64.0
+margin_bottom = 9.0
 custom_fonts/font = ExtResource( 1 )
 text = "Yellow"
 align = 1
@@ -70,15 +70,15 @@ __meta__ = {
 }
 
 [node name="RightArrow" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
-margin_left = 72.0
-margin_right = 88.0
-margin_bottom = 16.0
+margin_left = 68.0
+margin_right = 80.0
+margin_bottom = 10.0
 texture = ExtResource( 6 )
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 88.0
-margin_right = 88.0
-margin_bottom = 104.0
+margin_top = 82.0
+margin_right = 80.0
+margin_bottom = 92.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -86,15 +86,15 @@ __meta__ = {
 
 [node name="LeftArrow" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
 margin_left = 4.0
-margin_right = 20.0
-margin_bottom = 16.0
+margin_right = 16.0
+margin_bottom = 10.0
 texture = ExtResource( 7 )
 
 [node name="EmotionLabel" type="Label" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 24.0
-margin_top = 4.0
-margin_right = 64.0
-margin_bottom = 12.0
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 60.0
+margin_bottom = 9.0
 custom_fonts/font = ExtResource( 1 )
 text = "Happy"
 align = 1
@@ -103,20 +103,20 @@ __meta__ = {
 }
 
 [node name="RightArrow" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 68.0
-margin_right = 84.0
-margin_bottom = 16.0
+margin_left = 64.0
+margin_right = 76.0
+margin_bottom = 10.0
 texture = ExtResource( 6 )
 
 [node name="TitleGap" parent="VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 108.0
-margin_right = 88.0
-margin_bottom = 120.0
+margin_top = 96.0
+margin_right = 80.0
+margin_bottom = 108.0
 
 [node name="BackLabel" type="Label" parent="VBoxContainer"]
-margin_top = 124.0
-margin_right = 88.0
-margin_bottom = 132.0
+margin_top = 112.0
+margin_right = 80.0
+margin_bottom = 120.0
 custom_fonts/font = ExtResource( 1 )
 text = "Back"
 align = 1
