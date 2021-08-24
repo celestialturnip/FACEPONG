@@ -26,12 +26,15 @@ func _ready():
 	Signals.emit("player_ready")
 
 func get_colour():
-	if is_human: return Utils.colour_dict[Utils.player_settings["colour"]]
-	var existing = Utils.get_player_colours()
-	var random_colour = Utils.get_random_colour()
-	while existing.has(random_colour):
-		random_colour = Utils.get_random_colour()
-	return random_colour
+	if is_human:
+		colour = Utils.colour_dict[Utils.player_settings["colour"]]
+	else:
+		var existing = Utils.get_player_colours()
+		var random_colour = Utils.get_random_colour()
+		while existing.has(random_colour):
+			random_colour = Utils.get_random_colour()
+		colour = random_colour
+	return colour
 
 func _exit_tree():
 	if is_human: MainInstances.Player = null
