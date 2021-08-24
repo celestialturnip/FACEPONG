@@ -5,9 +5,9 @@ var MainInstances = ResourceLoader.MainInstances
 
 var last_touch = null
 var max_acceleration = 1.06
-var max_speed = 190
+var max_speed = 140 if Utils.game_difficulty == Utils.GAME_DIFFICULTY.EASY else 180
 var server = null
-var speed = 130
+var speed = 70 if Utils.game_difficulty == Utils.GAME_DIFFICULTY.EASY else 130
 var velocity = Vector2.ZERO
 
 func _ready():
