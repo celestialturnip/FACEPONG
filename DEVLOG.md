@@ -191,3 +191,8 @@ Everything I implemented is fairly basic - the level selection screen just lists
 I added some more UI polish: the label that you are currently on in the UI slides, some sound effects to other menus/screens, and updated each player's life bar to match their player colour.
 
 I did quite a lot of playtesting yesterday and I definitely need to reduce the difficulty. I also need to improve the control of the player - getting the player to move to exactly where you want is not ideal. I've gotten used to it by simply tapping the arrow keys lightly but a new player wouldn't know how to do it. I also have to replace a lot debug-only features (e.g. ball always spawns in the top-left corner) with a real feature (e.g. the player who just allowed a goal gets to serve).
+
+# Day 17 - 2021/08/23
+I added the concept of a "serve position". Each Player has a Position2D, named ServingPosition. When the game starts, the human player will have the ball spawn at the serving position. When a player allows a goal, they will become the server and the ball will spawn at their serving position.
+
+I did look into adding more control of where the ball goes when it's served but the implementation was a bit too much for me to get done in just a few hours so I decided to go with something simple.
