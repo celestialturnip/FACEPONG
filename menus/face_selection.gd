@@ -1,4 +1,4 @@
-extends CenterContainer
+extends HBoxContainer
 
 var colours = Utils.colour_dict.keys()
 var colour_idx = colours.find(Utils.player_settings["colour"])
@@ -11,6 +11,7 @@ var label_idx = 0
 onready var labels = [
 	$VBoxContainer/HBoxContainer/ColourLabel,
 	$VBoxContainer/HBoxContainer2/EmotionLabel,
+	$VBoxContainer/BackLabel
 ]
 
 func _ready() -> void:
@@ -55,6 +56,11 @@ func _process(_delta: float) -> void:
 				else:
 					emotion_idx = (emotion_idx + 1) % len(emotions)
 				update_emotion()
+			"BackLabel":
+				if Input.is_action_just_pressed("ui_accept"):
+					SoundFX.play("menu_accept.wav")
+					# warning-ignore:return_value_discarded
+					get_tree().change_scene("res://menus/start_menu.tscn")
 
 	if Input.is_action_just_pressed("ui_accept"):
 		SoundFX.play("menu_accept.wav")

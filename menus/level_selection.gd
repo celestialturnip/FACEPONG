@@ -1,4 +1,4 @@
-extends CenterContainer
+extends HBoxContainer
 
 var label_idx = 0
 

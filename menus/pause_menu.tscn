@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://fonts/zx_spectrum/7px.tres" type="DynamicFont" id=1]
 [ext_resource path="res://fonts/zx_spectrum/14px.tres" type="DynamicFont" id=2]
 [ext_resource path="res://menus/pause_menu.gd" type="Script" id=3]
+[ext_resource path="res://ui/pre_title_gap.tscn" type="PackedScene" id=4]
 
 [node name="PauseMenu" type="CanvasLayer"]
 pause_mode = 2
@@ -17,22 +18,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer"]
 margin_left = 37.0
-margin_top = 62.0
 margin_right = 123.0
-margin_bottom = 130.0
+margin_bottom = 192.0
 
-[node name="Title" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
+[node name="PreTitleGap" parent="ColorRect/HBoxContainer/VBoxContainer" instance=ExtResource( 4 )]
 margin_right = 86.0
-margin_bottom = 16.0
+margin_bottom = 24.0
+
+[node name="Title" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 86.0
+margin_bottom = 44.0
 custom_fonts/font = ExtResource( 2 )
 text = "Paused"
 align = 1
@@ -40,19 +46,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="ColorRect/CenterContainer/VBoxContainer"]
-margin_top = 20.0
+[node name="Control" type="Control" parent="ColorRect/HBoxContainer/VBoxContainer"]
+margin_top = 48.0
 margin_right = 86.0
-margin_bottom = 32.0
+margin_bottom = 60.0
 rect_min_size = Vector2( 0, 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ResumeLabel" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
-margin_top = 36.0
+[node name="ResumeLabel" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer"]
+margin_top = 64.0
 margin_right = 86.0
-margin_bottom = 44.0
+margin_bottom = 72.0
 custom_fonts/font = ExtResource( 1 )
 text = "Resume"
 align = 1
@@ -60,10 +66,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RestartLabel" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
-margin_top = 48.0
+[node name="RestartLabel" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer"]
+margin_top = 76.0
 margin_right = 86.0
-margin_bottom = 56.0
+margin_bottom = 84.0
 custom_fonts/font = ExtResource( 1 )
 text = "Restart"
 align = 1
@@ -71,10 +77,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExitLabel" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
-margin_top = 60.0
+[node name="ExitLabel" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer"]
+margin_top = 88.0
 margin_right = 86.0
-margin_bottom = 68.0
+margin_bottom = 96.0
 custom_fonts/font = ExtResource( 1 )
 text = "Exit"
 align = 1

@@ -4,9 +4,9 @@ var label_idx = 0
 var paused = false setget set_paused
 
 onready var labels = [
-	$ColorRect/CenterContainer/VBoxContainer/ResumeLabel,
-	$ColorRect/CenterContainer/VBoxContainer/RestartLabel,
-	$ColorRect/CenterContainer/VBoxContainer/ExitLabel
+	$ColorRect/HBoxContainer/VBoxContainer/ResumeLabel,
+	$ColorRect/HBoxContainer/VBoxContainer/RestartLabel,
+	$ColorRect/HBoxContainer/VBoxContainer/ExitLabel
 ]
 
 func _ready() -> void:

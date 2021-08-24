@@ -1,39 +1,44 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://fonts/zx_spectrum/14px.tres" type="DynamicFont" id=1]
 [ext_resource path="res://fonts/zx_spectrum/7px.tres" type="DynamicFont" id=2]
 [ext_resource path="res://ui/title_gap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://menus/level_selection.gd" type="Script" id=4]
+[ext_resource path="res://ui/pre_title_gap.tscn" type="PackedScene" id=5]
 
-[node name="LevelSelection" type="CenterContainer"]
+[node name="LevelSelection" type="HBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+alignment = 1
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 20.0
-margin_top = 50.0
 margin_right = 140.0
-margin_bottom = 142.0
+margin_bottom = 192.0
+
+[node name="PreTitleGap" parent="VBoxContainer" instance=ExtResource( 5 )]
+margin_right = 120.0
+margin_bottom = 24.0
 
 [node name="Title" type="Label" parent="VBoxContainer"]
+margin_top = 28.0
 margin_right = 120.0
-margin_bottom = 16.0
+margin_bottom = 44.0
 custom_fonts/font = ExtResource( 1 )
 text = "LEVELS"
 align = 1
 valign = 1
 
 [node name="TitleGap" parent="VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 48.0
 margin_right = 120.0
+margin_bottom = 60.0
 
 [node name="level01" type="Label" parent="VBoxContainer"]
-margin_top = 36.0
+margin_top = 64.0
 margin_right = 120.0
-margin_bottom = 44.0
+margin_bottom = 72.0
 custom_fonts/font = ExtResource( 2 )
 text = "1. Intro"
 valign = 1
@@ -42,9 +47,9 @@ __meta__ = {
 }
 
 [node name="level02" type="Label" parent="VBoxContainer"]
-margin_top = 48.0
+margin_top = 76.0
 margin_right = 120.0
-margin_bottom = 56.0
+margin_bottom = 84.0
 custom_fonts/font = ExtResource( 2 )
 text = "2. Graveyard"
 valign = 1
@@ -53,9 +58,9 @@ __meta__ = {
 }
 
 [node name="level03" type="Label" parent="VBoxContainer"]
-margin_top = 60.0
+margin_top = 88.0
 margin_right = 120.0
-margin_bottom = 68.0
+margin_bottom = 96.0
 custom_fonts/font = ExtResource( 2 )
 text = "3. River"
 valign = 1
@@ -64,9 +69,9 @@ __meta__ = {
 }
 
 [node name="level04" type="Label" parent="VBoxContainer"]
-margin_top = 72.0
+margin_top = 100.0
 margin_right = 120.0
-margin_bottom = 80.0
+margin_bottom = 108.0
 custom_fonts/font = ExtResource( 2 )
 text = "4. Intersection"
 valign = 1
@@ -75,9 +80,9 @@ __meta__ = {
 }
 
 [node name="level05" type="Label" parent="VBoxContainer"]
-margin_top = 84.0
+margin_top = 112.0
 margin_right = 120.0
-margin_bottom = 92.0
+margin_bottom = 120.0
 custom_fonts/font = ExtResource( 2 )
 text = "5. Hit Me"
 valign = 1
