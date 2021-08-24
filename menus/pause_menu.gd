@@ -38,6 +38,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		self.paused = !paused
 		SoundFX.play("menu_accept.wav")
+		label_idx = 0  # Reset it back to zero so next time player opens pause, the first label is selected.
 		match current_label.text:
 			"EXIT":
 				# warning-ignore:return_value_discarded
