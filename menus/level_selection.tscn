@@ -11,19 +11,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 alignment = 1
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 20.0
-margin_right = 140.0
+margin_left = 37.0
+margin_right = 123.0
 margin_bottom = 192.0
 
 [node name="PreTitleGap" parent="VBoxContainer" instance=ExtResource( 5 )]
-margin_right = 120.0
+margin_right = 86.0
 margin_bottom = 24.0
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 margin_top = 28.0
-margin_right = 120.0
+margin_right = 86.0
 margin_bottom = 44.0
 custom_fonts/font = ExtResource( 1 )
 text = "LEVELS"
@@ -32,15 +35,16 @@ valign = 1
 
 [node name="TitleGap" parent="VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 48.0
-margin_right = 120.0
+margin_right = 86.0
 margin_bottom = 60.0
 
 [node name="level01" type="Label" parent="VBoxContainer"]
 margin_top = 64.0
-margin_right = 120.0
+margin_right = 86.0
 margin_bottom = 72.0
 custom_fonts/font = ExtResource( 2 )
-text = "1. Intro"
+text = "Vanilla"
+align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -48,10 +52,11 @@ __meta__ = {
 
 [node name="level02" type="Label" parent="VBoxContainer"]
 margin_top = 76.0
-margin_right = 120.0
+margin_right = 86.0
 margin_bottom = 84.0
 custom_fonts/font = ExtResource( 2 )
-text = "2. Graveyard"
+text = "Graveyard"
+align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -59,10 +64,11 @@ __meta__ = {
 
 [node name="level03" type="Label" parent="VBoxContainer"]
 margin_top = 88.0
-margin_right = 120.0
+margin_right = 86.0
 margin_bottom = 96.0
 custom_fonts/font = ExtResource( 2 )
-text = "3. River"
+text = "River"
+align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -70,10 +76,11 @@ __meta__ = {
 
 [node name="level04" type="Label" parent="VBoxContainer"]
 margin_top = 100.0
-margin_right = 120.0
+margin_right = 86.0
 margin_bottom = 108.0
 custom_fonts/font = ExtResource( 2 )
-text = "4. Intersection"
+text = "Suburbia"
+align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -81,11 +88,25 @@ __meta__ = {
 
 [node name="level05" type="Label" parent="VBoxContainer"]
 margin_top = 112.0
-margin_right = 120.0
+margin_right = 86.0
 margin_bottom = 120.0
 custom_fonts/font = ExtResource( 2 )
-text = "5. Hit Me"
+text = "Hit Me"
+align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TitleGap2" parent="VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 124.0
+margin_right = 86.0
+margin_bottom = 136.0
+
+[node name="BackLabel" type="Label" parent="VBoxContainer"]
+margin_top = 140.0
+margin_right = 86.0
+margin_bottom = 148.0
+custom_fonts/font = ExtResource( 2 )
+text = "Back"
+align = 1

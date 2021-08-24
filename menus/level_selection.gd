@@ -2,12 +2,14 @@ extends HBoxContainer
 
 var label_idx = 0
 
+onready var back_label = $VBoxContainer/BackLabel
 onready var labels = [
 	$"VBoxContainer/level01",
 	$"VBoxContainer/level02",
 	$"VBoxContainer/level03",
 	$"VBoxContainer/level04",
-	$"VBoxContainer/level05"
+	$"VBoxContainer/level05",
+	back_label
 ]
 
 func _ready() -> void:
@@ -27,6 +29,9 @@ func _process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("ui_accept"):
 		SoundFX.play("menu_accept.wav")
+		if current_label == back_label:
+			# warning-ignore:return_value_discarded
+			get_tree().change_scene("res://menus/start_menu.tscn")
 		var level_scene_path = "res://levels/{name}.tscn".format({"name": current_label.name.to_lower()})
 		Utils.previous_level_scene_path = level_scene_path
 		# warning-ignore:return_value_discarded
