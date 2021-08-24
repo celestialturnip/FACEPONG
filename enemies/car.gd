@@ -18,7 +18,7 @@ var map = {
 var trip = map[map.keys()[randi() % 4]]
 
 func _ready():
-	$Sprite.modulate = Color(Utils.car_palette[randi() % len(Utils.car_palette)])
+	$Sprite.modulate = Utils.get_random_colour()
 	target = trip["finish"]
 	position = trip["start"]
 	scale.x = trip["scale"]

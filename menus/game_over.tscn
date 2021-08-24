@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://fonts/zx_spectrum/14px.tres" type="DynamicFont" id=1]
-[ext_resource path="res://fonts/zx_spectrum/7px.tres" type="DynamicFont" id=2]
+[ext_resource path="res://ui/14px_label.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui/7px_label.tscn" type="PackedScene" id=2]
 [ext_resource path="res://menus/game_over.gd" type="Script" id=3]
 [ext_resource path="res://ui/title_gap.tscn" type="PackedScene" id=4]
 
@@ -19,26 +19,21 @@ margin_top = 68.0
 margin_right = 144.0
 margin_bottom = 124.0
 
-[node name="Title" type="Label" parent="VBoxContainer"]
+[node name="Title" parent="VBoxContainer" instance=ExtResource( 1 )]
 margin_right = 128.0
 margin_bottom = 16.0
-custom_fonts/font = ExtResource( 1 )
 text = "Game Over"
 
 [node name="TitleGap" parent="VBoxContainer" instance=ExtResource( 4 )]
 
-[node name="RestartLevel" type="Label" parent="VBoxContainer"]
+[node name="RestartLevel" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 36.0
 margin_right = 128.0
 margin_bottom = 44.0
-custom_fonts/font = ExtResource( 2 )
-text = "Restart Level"
-align = 1
+text = "Restart"
 
-[node name="ReturnToMain" type="Label" parent="VBoxContainer"]
+[node name="ReturnToMain" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 48.0
 margin_right = 128.0
 margin_bottom = 56.0
-custom_fonts/font = ExtResource( 2 )
 text = "Return to Main"
-align = 1
