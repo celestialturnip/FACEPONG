@@ -48,6 +48,7 @@ func on_hit():
 	$Sprite.visible = false
 	$ShadowSprite.visible = false
 	$DeathEffect.visible = true
+	$DeathEffect.modulate = Utils.get_random_colour()
 	$DeathEffect.play("default")
 	SoundFX.play("ghost_hit.wav")
 
