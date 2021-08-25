@@ -196,3 +196,15 @@ I did quite a lot of playtesting yesterday and I definitely need to reduce the d
 I added the concept of a "serve position". Each Player has a Position2D, named ServingPosition. When the game starts, the human player will have the ball spawn at the serving position. When a player allows a goal, they will become the server and the ball will spawn at their serving position.
 
 I did look into adding more control of where the ball goes when it's served but the implementation was a bit too much for me to get done in just a few hours so I decided to go with something simple.
+
+# Day 18 - 2021/08/24
+I had a very productive day:
+- added two game difficulty modes (easy and hard)
+- refactored menus and shared label components
+- fixed a few bugs (i.e. AI colour matches human player, level01 always loads when player restarts the game, pause menu's default label doesn't default to "Resume" when opening it)
+
+For the game difficulty modes, the settings that change are the ball speed, max ball speed, and the AI speed. For the hard difficulty, I used values that definitely give me a challenge to win but are still doable. For the easy difficulty, I ramped these down considerably to a level where I think anyone can win. I'll have to some play testing to see if it's possibly too easy.
+
+For refactoring, I noticed I used the exact same label and configuration across all my menus: 7px font with the lace colour. I simply made a new Label node with this configuration and updated all my existing menus to match it.
+
+For refactoring, 
