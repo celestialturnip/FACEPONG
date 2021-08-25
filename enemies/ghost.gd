@@ -49,6 +49,7 @@ func on_hit():
 	$ShadowSprite.visible = false
 	$DeathEffect.visible = true
 	$DeathEffect.play("default")
+	SoundFX.play("ghost_hit.wav")
 
 func _on_Timer_timeout():
 	target = ball.position
