@@ -23,7 +23,7 @@ func _ready():
 		"modulate:a", # property
 		0, # initial_val
 		1, # final_val
-		2, # duration
+		1, # duration
 		Tween.TRANS_LINEAR, # trans_type
 		Tween.EASE_IN_OUT # ease_type
 	)
