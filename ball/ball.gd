@@ -46,6 +46,11 @@ func _physics_process(delta):
 
 	if collision.collider.has_method("on_hit"): collision.collider.on_hit()
 	if collision.collider is Player: last_touch = collision.collider
+	if collision.collider is Ghost and velocity:
+
+		if randi() % 2 == 0: velocity.x += rand_range(-20, 20)
+		else: velocity.y += rand_range(-20, 20)
+		return
 
 	velocity = velocity.bounce(collision.normal)
 	if sqrt(pow(velocity.x, 2) + pow(velocity.y, 2)) < max_speed:

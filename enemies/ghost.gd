@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Ghost
 
 var MainInstances = ResourceLoader.MainInstances
 var acceleration = rand_range(15, 30)
@@ -40,13 +41,14 @@ func _physics_process(delta):
 	if $SoftCollision.is_colliding():
 		velocity += $SoftCollision.get_push_vector() * delta * 400
 
-	var collision_info = move_and_collide(velocity * delta)
-	if collision_info:
-		$CollisionShape2D.disabled = true
-		$Sprite.visible = false
-		$ShadowSprite.visible = false
-		$DeathEffect.visible = true
-		$DeathEffect.play("default")
+	var _collision_info = move_and_collide(velocity * delta)
+
+func on_hit():
+	$CollisionShape2D.disabled = true
+	$Sprite.visible = false
+	$ShadowSprite.visible = false
+	$DeathEffect.visible = true
+	$DeathEffect.play("default")
 
 func _on_Timer_timeout():
 	target = ball.position
