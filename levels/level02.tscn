@@ -72,4 +72,3 @@ position = Vector2( 48, 80 )
 
 [node name="Spawnner" parent="." instance=ExtResource( 9 )]
 scene_file = ExtResource( 10 )
-max_spawn_count = 3

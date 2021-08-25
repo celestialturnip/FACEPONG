@@ -30,18 +30,22 @@ func _ready():
 
 func _physics_process(delta):
 	if $DeathEffect.playing: return
+
 	velocity = position.direction_to(target) * acceleration
 	velocity.x = clamp(velocity.x, -max_speed, max_speed)
 	velocity.y = clamp(velocity.y, -max_speed, max_speed)
 	velocity.x = lerp(velocity.x, 0, friction)
 	velocity.y = lerp(velocity.y, 0, friction)
+
+	if $SoftCollision.is_colliding():
+		velocity += $SoftCollision.get_push_vector() * delta * 400
+
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
 		$CollisionShape2D.disabled = true
 		$Sprite.visible = false
 		$ShadowSprite.visible = false
 		$DeathEffect.visible = true
-
 		$DeathEffect.play("default")
 
 func _on_Timer_timeout():
