@@ -29,6 +29,7 @@ func _ready():
 	$Tween.start()
 
 func _physics_process(delta):
+	if $DeathEffect.playing: return
 	velocity = position.direction_to(target) * acceleration
 	velocity.x = clamp(velocity.x, -max_speed, max_speed)
 	velocity.y = clamp(velocity.y, -max_speed, max_speed)
@@ -36,10 +37,18 @@ func _physics_process(delta):
 	velocity.y = lerp(velocity.y, 0, friction)
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
-		queue_free()
+		$CollisionShape2D.disabled = true
+		$Sprite.visible = false
+		$ShadowSprite.visible = false
+		$DeathEffect.visible = true
+
+		$DeathEffect.play("default")
 
 func _on_Timer_timeout():
 	target = ball.position
 
 func _on_Tween_tween_completed(_object, _key):
 	collider.disabled = false
+
+func _on_DeathEffect_animation_finished() -> void:
+	queue_free()
