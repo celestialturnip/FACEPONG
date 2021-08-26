@@ -77,6 +77,8 @@ func on_hit():
 
 func on_goal_allowed():
 	health -= 1
+	Signals.emit("player_health_changed")
+
 	if health == 0 and is_human:
 		Signals.emit("player_died")
 	if is_human:
@@ -86,7 +88,7 @@ func on_goal_allowed():
 
 func increase_health():
 	health += 1
-	Signals.emit("player_health_increased")
+	Signals.emit("player_health_changed")
 
 func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)

@@ -10,7 +10,7 @@ func _ready():
 	player = get_node(player_node_path)
 	middle_post.disable()
 	# warning-ignore-all:return_value_discarded
-	Signals.connect("player_health_increased", self, "update_lifebar")
+	Signals.connect("player_health_changed", self, "update_lifebar")
 	Signals.connect("player_ready", self, "_on_player_ready")
 
 func update_lifebar():
@@ -25,7 +25,6 @@ func _on_BallDetector_body_entered(body):
 	Signals.emit("ball_entered_net")
 
 	player.on_goal_allowed()
-	$LifeBar.set_health(player.health)
 	if player.health == 0:
 		player.queue_free()
 		middle_post.enable()
