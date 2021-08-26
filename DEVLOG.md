@@ -207,4 +207,10 @@ For the game difficulty modes, the settings that change are the ball speed, max 
 
 For refactoring, I noticed I used the exact same label and configuration across all my menus: 7px font with the lace colour. I simply made a new Label node with this configuration and updated all my existing menus to match it.
 
-For refactoring, 
+# Day 19 - 2021/08/25
+Yet another productive day. I spent it polishing up the ghost enemy. When I first implemented, it was very barebones - upon collision, it would just disappear. There would be no death effect, no sound effect, and the ball would just bounce off of it as if it were a wall.
+
+I've:
+- Added a shadow underneath the ghost
+- Added a death and sound effect that plays when the ghost is hit
+- Changed the collision mechanic so the ball doesn't bounce off the ghost but instead, it goes through it with some variation in direction and speed
