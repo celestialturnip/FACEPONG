@@ -25,6 +25,7 @@ func _exit_tree():
 
 func _process(_delta):
 	if Input.is_action_just_pressed("serve") and (not velocity):
+		Signals.emit("ball_served")
 		serve()
 
 func serve():
@@ -47,7 +48,9 @@ func _physics_process(delta):
 		velocity /= max_acceleration
 
 	if collision.collider.has_method("on_hit"): collision.collider.on_hit()
-	if collision.collider is Player: last_touch = collision.collider
+	if collision.collider is Player:
+		last_touch = collision.collider
+		if last_touch.is_human: Utils.level_stats["touches"] += 1
 	if collision.collider is Ghost:
 		if not velocity: return
 		var random_push = rand_range(-20, 20)

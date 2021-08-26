@@ -35,4 +35,6 @@ func _on_BallDetector_body_entered(body):
 		body.server = Utils.get_random_player(player)
 	else:
 		body.server = player
+	if body.last_touch and body.last_touch.is_human:
+		Utils.level_stats["goals"] += 1
 	body.reset()

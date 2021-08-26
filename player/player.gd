@@ -6,7 +6,7 @@ var MainInstances = ResourceLoader.MainInstances
 var acceleration = 75
 var colour
 var friction = 0.30
-var health = 3
+var health = 1
 var max_speed = 450  # Human player only.
 var target = null
 var tracking_error = Vector2(rand_range(-2, 2), rand_range(-2, 2))
@@ -16,7 +16,7 @@ export(bool) var is_human
 onready var ball = MainInstances.Ball
 onready var serving_position = $ServingPosition.global_position
 onready var starting_position = position
-onready var speed = 250 if (is_human or Utils.game_difficulty == Utils.GAME_DIFFICULTY.EASY) else 350
+onready var speed = 250 if (is_human or Utils.game_difficulty == Utils.GAME_DIFFICULTY.EASY) else 200
 
 func _ready():
 	$Sprite.modulate = get_colour()
@@ -79,8 +79,9 @@ func on_goal_allowed():
 	health -= 1
 	Signals.emit("player_health_changed")
 
-	if health == 0 and is_human:
-		Signals.emit("player_died")
+	if health == 0:
+		if is_human: Signals.emit("player_died")
+		else: Signals.emit("ai_died")
 	if is_human:
 		SoundFX.play("goal_allowed.wav")
 	else:

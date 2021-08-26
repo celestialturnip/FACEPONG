@@ -19,6 +19,7 @@ var colour_dict = {
 	"violet": Color("#FF77A8"),
 	"wood": Color("FFCCAA")
 }
+var level_stats = {}
 var player_settings = {"emotion": "happy", "colour": "yellow"}
 var previous_level_scene_path = null
 var virtual_height = ProjectSettings.get("display/window/size/height")
@@ -27,7 +28,7 @@ var MainInstances = ResourceLoader.MainInstances
 
 # Game difficulty.
 enum GAME_DIFFICULTY {EASY, HARD}
-var game_difficulty = GAME_DIFFICULTY.EASY
+var game_difficulty = GAME_DIFFICULTY.HARD
 func toggle_game_difficulty():
 	game_difficulty = GAME_DIFFICULTY.EASY if game_difficulty == GAME_DIFFICULTY.HARD else GAME_DIFFICULTY.HARD
 
@@ -43,8 +44,25 @@ func toggle(label, on: bool):
 
 func _ready():
 	randomize()
-	# warning-ignore:return_value_discarded
+	# warning-ignore-all:return_value_discarded
 	Signals.connect("player_died", self, "_on_player_died")
+	Signals.connect("ai_died", self, "_on_ai_died")
+	Signals.connect("ball_served", self, "_on_ball_served")
+
+func _on_ball_served():
+	if not level_stats["started_at"]: level_stats["started_at"] = OS.get_unix_time()
+
+func reset_level_stats():
+	level_stats = {"started_at": null, "goals": 0, "touches": 0}
+
+func _on_ai_died():
+	# Check if any AI are alive.
+	for player in get_tree().get_nodes_in_group("Player"):
+		if player.is_human: continue
+		if player.health > 0: return
+	yield(get_tree().create_timer(1.0), "timeout")
+	# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://menus/level_clear.tscn")
 
 func _on_player_died():
 	yield(get_tree().create_timer(1.0), "timeout")
