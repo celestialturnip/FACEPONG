@@ -14,7 +14,8 @@ func _ready():
 	Signals.connect("player_ready", self, "_on_player_ready")
 
 func update_lifebar():
-	life_bar.set_health(player.health)
+	if player in get_tree().get_nodes_in_group("Player"):
+		life_bar.set_health(player.health)
 
 func _on_player_ready():
 	life_bar.modulate = player.get_node("Sprite").modulate
