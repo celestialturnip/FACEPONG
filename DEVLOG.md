@@ -219,3 +219,8 @@ I've:
 I added a level completion screen. The way I implemented is every time an AI loses all their health, they send a signal that my global Utils.gd listens to. It checks the scene tree and sees if there's any AIs left with health. If not, then it loads the level cleared screen. For future projects, I feel adding more and more to my Utils.gd isn't the best approach. Ideally what I will do is have a generic LevelManager or GameManager that is responsible for loading levels, transitioning between them, and transitioning away from them to "level cleared" screens.
 
 Something I got really lucky with is Godot's RichTextLabel and its capability. I wanted to add a juicy "level cleared" label but thought I might have to write a shader to create a cool, rainbow effect. Fortunately, Godot already has this built-in and they offer a few different options for cool effects: tornado, wave, shake, etc.
+
+# Day 21 - 2021/08/27
+I added a crown beside each completed level in the level selection screen. At least this way, the players have some notion of making progress throughout the demo. Ideally I'd like to add some sort of "demo complete" screen once the players have completed all five levels.
+
+I did explore using the RichTextLabel and its effects to replace my regular Label. However, I ran into an issue where whenever I use an effect, it introduces a large space between the label and the node above. I haven't solved it so for now, I'll continue using the regular Label but hopefully for the next project I can switch over to using RichTextLabel for everything since I think the default effects add a lot of juice to the game with not much extra code.
