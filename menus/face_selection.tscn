@@ -1,6 +1,5 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://fonts/zx_spectrum/7px.tres" type="DynamicFont" id=1]
 [ext_resource path="res://fonts/zx_spectrum/14px.tres" type="DynamicFont" id=2]
 [ext_resource path="res://ui/title_gap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://player/face_happy.png" type="Texture" id=4]
@@ -8,6 +7,7 @@
 [ext_resource path="res://ui/right_arrow.png" type="Texture" id=6]
 [ext_resource path="res://ui/left_arrow.png" type="Texture" id=7]
 [ext_resource path="res://ui/pre_title_gap.tscn" type="PackedScene" id=8]
+[ext_resource path="res://ui/7px_label.tscn" type="PackedScene" id=9]
 
 [node name="FaceSelection" type="HBoxContainer"]
 anchor_right = 1.0
@@ -57,17 +57,12 @@ margin_right = 12.0
 margin_bottom = 10.0
 texture = ExtResource( 7 )
 
-[node name="ColourLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="ColourLabel" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 9 )]
 margin_left = 16.0
 margin_top = 1.0
 margin_right = 64.0
 margin_bottom = 9.0
-custom_fonts/font = ExtResource( 1 )
 text = "Yellow"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="RightArrow" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
 margin_left = 68.0
@@ -90,17 +85,12 @@ margin_right = 16.0
 margin_bottom = 10.0
 texture = ExtResource( 7 )
 
-[node name="EmotionLabel" type="Label" parent="VBoxContainer/HBoxContainer2"]
+[node name="EmotionLabel" parent="VBoxContainer/HBoxContainer2" instance=ExtResource( 9 )]
 margin_left = 20.0
 margin_top = 1.0
 margin_right = 60.0
 margin_bottom = 9.0
-custom_fonts/font = ExtResource( 1 )
 text = "Happy"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="RightArrow" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
 margin_left = 64.0
@@ -113,10 +103,8 @@ margin_top = 96.0
 margin_right = 80.0
 margin_bottom = 108.0
 
-[node name="BackLabel" type="Label" parent="VBoxContainer"]
+[node name="BackLabel" parent="VBoxContainer" instance=ExtResource( 9 )]
 margin_top = 112.0
 margin_right = 80.0
 margin_bottom = 120.0
-custom_fonts/font = ExtResource( 1 )
 text = "Back"
-align = 1
