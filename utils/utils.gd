@@ -19,6 +19,7 @@ var colour_dict = {
 	"violet": Color("#FF77A8"),
 	"wood": Color("FFCCAA")
 }
+var completed_level_paths = []
 var level_stats = {}
 var player_settings = {"emotion": "happy", "colour": "yellow"}
 var previous_level_scene_path = null
@@ -60,6 +61,9 @@ func _on_ai_died():
 	for player in get_tree().get_nodes_in_group("Player"):
 		if player.is_human: continue
 		if player.health > 0: return
+	# Add this level to completed.
+	completed_level_paths.append(previous_level_scene_path)
+	# Load level clear screen.
 	yield(get_tree().create_timer(1.0), "timeout")
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://menus/level_clear.tscn")
