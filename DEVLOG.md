@@ -214,3 +214,8 @@ I've:
 - Added a shadow underneath the ghost
 - Added a death and sound effect that plays when the ghost is hit
 - Changed the collision mechanic so the ball doesn't bounce off the ghost but instead, it goes through it with some variation in direction and speed
+
+# Day 20 - 2021/08/26
+I added a level completion screen. The way I implemented is every time an AI loses all their health, they send a signal that my global Utils.gd listens to. It checks the scene tree and sees if there's any AIs left with health. If not, then it loads the level cleared screen. For future projects, I feel adding more and more to my Utils.gd isn't the best approach. Ideally what I will do is have a generic LevelManager or GameManager that is responsible for loading levels, transitioning between them, and transitioning away from them to "level cleared" screens.
+
+Something I got really lucky with is Godot's RichTextLabel and its capability. I wanted to add a juicy "level cleared" label but thought I might have to write a shader to create a cool, rainbow effect. Fortunately, Godot already has this built-in and they offer a few different options for cool effects: tornado, wave, shake, etc.
