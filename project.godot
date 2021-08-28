@@ -175,5 +175,5 @@ serve={
 
 [rendering]
 
-environment/default_clear_color=Color( 0.101961, 0.00784314, 0.054902, 1 )
+environment/default_clear_color=Color( 0.247059, 0.0392157, 0.141176, 1 )
 environment/default_environment="res://default_env.tres"

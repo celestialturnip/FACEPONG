@@ -9,16 +9,18 @@ var friction = 0.30
 var health = 3
 var max_speed = 450  # Human player only.
 var target = null
-var tracking_error = Vector2(rand_range(-2, 2), rand_range(-2, 2))
+var tracking_error = Vector2(rand_range(-8, 8), rand_range(-8, 8)) if Utils.game_difficulty == Utils.GAME_DIFFICULTY.EASY else  Vector2(rand_range(-4, 4), rand_range(-4, 4))
 var velocity = Vector2.ZERO
 export(bool) var is_human
 
 onready var ball = MainInstances.Ball
 onready var serving_position = $ServingPosition.global_position
 onready var starting_position = position
-onready var speed = 250 if (is_human or Utils.game_difficulty == Utils.GAME_DIFFICULTY.EASY) else 350
+onready var initial_scale = Vector2(1.3,1.3) if Utils.game_difficulty == Utils.GAME_DIFFICULTY.EASY else Vector2(1, 1)
+onready var speed = 250 if (is_human or Utils.game_difficulty == Utils.GAME_DIFFICULTY.EASY) else 300
 
 func _ready():
+	scale = initial_scale
 	$Sprite.modulate = get_colour()
 	if is_human:
 		MainInstances.Player = self
@@ -71,8 +73,8 @@ func on_hit():
 	$Tween.interpolate_property(
 		self, # object
 		"scale", # property
-		Vector2(1.3, 1.3), # initial_val
-		Vector2(1.0, 1.0), # final_val
+		initial_scale * 1.3, # initial_val
+		initial_scale, # final_val
 		0.3, # duration
 		Tween.TRANS_BACK, # trans_type
 		Tween.EASE_IN # ease_type
