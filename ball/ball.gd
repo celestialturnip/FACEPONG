@@ -63,3 +63,6 @@ func _physics_process(delta):
 	velocity = velocity.bounce(collision.normal)
 	velocity.x *= rand_range(1, max_acceleration)
 	velocity.y *= rand_range(1, max_acceleration)
+	
+	var random_push = rand_range(-5, 5)
+	velocity += Vector2(random_push, -random_push)
