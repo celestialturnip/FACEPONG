@@ -64,7 +64,7 @@ func on_hit():
 	# Sometimes when the ball hits the player, a collision gets detected twice.
 	# To avoid re-running this method twice, check how long ago the previous hit was.
 	if $Tween.get_runtime() > 0.25: return
-	SoundFX.play("player_hit.wav")
+	if not $Tween.is_active(): SoundFX.play("player_hit.wav")
 	$Tween.interpolate_property(
 		self, # object
 		"scale", # property

@@ -1,8 +1,7 @@
 extends StaticBody2D
 
 func on_hit():
-	SoundFX.play("gravestone_hit.wav")
-
+	if not $Tween.is_active(): SoundFX.play("gravestone_hit.wav")
 	$Tween.interpolate_property(
 		self, # object
 		"scale", # property
