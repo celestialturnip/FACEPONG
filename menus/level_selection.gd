@@ -35,6 +35,7 @@ func _process(_delta: float) -> void:
 		if current_label == back_label:
 			# warning-ignore:return_value_discarded
 			get_tree().change_scene("res://menus/start_menu.tscn")
+			return
 		var level_scene_path = "res://levels/{name}.tscn".format({"name": current_label.get_parent().name})
 		Utils.previous_level_scene_path = level_scene_path
 		Utils.reset_level_stats()
