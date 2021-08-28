@@ -82,5 +82,5 @@ rotation = -1.5708
 
 [node name="Spawnner" parent="." instance=ExtResource( 7 )]
 scene_file = ExtResource( 6 )
-max_spawn_interval = 1
-max_spawn_count = 10
+max_spawn_interval = 4
+max_spawn_count = 4
