@@ -24,7 +24,7 @@ func _exit_tree():
 	MainInstances.Ball = null
 
 func _process(_delta):
-	if Input.is_action_just_pressed("serve") and (not velocity):
+	if Input.is_action_just_pressed("serve") and (not velocity) and (get_tree().get_nodes_in_group("Player").size() > 1):
 		Signals.emit("ball_served")
 		serve()
 
