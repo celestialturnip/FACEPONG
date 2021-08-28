@@ -6,6 +6,7 @@ onready var labels = [$VBoxContainer/RestartLevel, $VBoxContainer/ReturnToMain]
 
 func _ready() -> void:
 	Utils.toggle(labels[label_idx], true)
+	SoundFX.play("game_over.wav")
 
 func _process(_delta: float) -> void:
 	var current_label = labels[label_idx]
