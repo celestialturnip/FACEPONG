@@ -18,7 +18,7 @@ func set_paused(value):
 
 func _process(_delta: float) -> void:
 	var current_label = labels[label_idx]
-	if Input.is_action_just_pressed("ui_cancel") and get_tree().get_nodes_in_group("Player").size() > 0:
+	if Input.is_action_just_pressed("ui_cancel") and get_tree().get_nodes_in_group("Human").size() > 0:
 		reset_labels()
 		self.paused = !paused
 

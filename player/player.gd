@@ -22,6 +22,7 @@ func _ready():
 	$Sprite.modulate = get_colour()
 	if is_human:
 		MainInstances.Player = self
+		add_to_group("Human")
 		$Sprite.set_texture(load("res://player/face_{emotion}.png".format({"emotion": Utils.player_settings["emotion"]})))
 	Signals.emit("player_ready")
 
