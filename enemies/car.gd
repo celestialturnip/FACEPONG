@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+var last_movement_time = OS.get_unix_time()
 var speed = 30
 var target
 var velocity
@@ -30,15 +31,34 @@ func _physics_process(delta):
 	
 	# Check if it would return collision.
 	var collision_info = move_and_collide(velocity * delta, true, true, false)
-	# If not, actually move.
-	if not collision_info:
+	
+	# If so, check if timer paused already - if not, start it.
+	if collision_info:
+		if (OS.get_unix_time() - last_movement_time) > 1:
+			_on_Timer_timeout()
+			last_movement_time = OS.get_unix_time()
+
+	# If no collision, actually move.
+	else:
 		collision_info = move_and_collide(velocity * delta)
+		last_movement_time = OS.get_unix_time()
+		
 
 func on_hit():
-	SoundFX.play("car_hit.wav")
-	if $Tween.is_active(): return
+	if not $Tween.is_active(): SoundFX.play("car_hit.wav")
 	$Tween.interpolate_property(self, "scale", scale * 1.2, scale, 0.2, Tween.TRANS_BACK, Tween.EASE_IN)
 	$Tween.start()
 
 func _on_VisibilityNotifier2D_viewport_exited(_viewport):
+	queue_free()
+
+func _on_Timer_timeout() -> void:
+	$DeathEffect.play("default")
+	$Sprite.visible = false
+	$DeathEffect.visible = true
+	$DeathEffect.modulate = $Sprite.modulate
+	$DeathEffect.play("default")
+	SoundFX.play("car_explosion.wav")
+
+func _on_DeathEffect_animation_finished() -> void:
 	queue_free()

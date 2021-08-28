@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://enemies/car.gd" type="Script" id=1]
 [ext_resource path="res://enemies/car.png" type="Texture" id=2]
+[ext_resource path="res://enemies/death_effect.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 4 )
@@ -19,10 +20,9 @@ texture = ExtResource( 2 )
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 visible = false
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
 [node name="Tween" type="Tween" parent="."]
 
+[node name="DeathEffect" parent="." instance=ExtResource( 3 )]
+
 [connection signal="viewport_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_viewport_exited"]
+[connection signal="animation_finished" from="DeathEffect" to="." method="_on_DeathEffect_animation_finished"]
