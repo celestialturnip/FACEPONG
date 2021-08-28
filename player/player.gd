@@ -24,6 +24,9 @@ func _ready():
 		MainInstances.Player = self
 		add_to_group("Human")
 		$Sprite.set_texture(load("res://player/face_{emotion}.png".format({"emotion": Utils.player_settings["emotion"]})))
+	else:
+		add_to_group("AI")
+		$CollisionShape2D.shape.radius = 7
 	Signals.emit("player_ready")
 
 func get_colour():
