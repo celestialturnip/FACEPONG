@@ -224,3 +224,12 @@ Something I got really lucky with is Godot's RichTextLabel and its capability. I
 I added a crown beside each completed level in the level selection screen. At least this way, the players have some notion of making progress throughout the demo. Ideally I'd like to add some sort of "demo complete" screen once the players have completed all five levels.
 
 I did explore using the RichTextLabel and its effects to replace my regular Label. However, I ran into an issue where whenever I use an effect, it introduces a large space between the label and the node above. I haven't solved it so for now, I'll continue using the regular Label but hopefully for the next project I can switch over to using RichTextLabel for everything since I think the default effects add a lot of juice to the game with not much extra code.
+
+# Day 22 - 2021/08/28
+Very productive day with several bug fixes and some polishing:
+- Polished the river level by replacing the octopus instancing logic that was contained in level03.gd with the generic enemy spawnner I had built a while back.
+- Dixed a bug where pressing the serve button immediately after you lost your last health and there's only 1 other AI left crashes the game. This happened since it would try find another random AI to serve the ball to, but since there's only 1, it would run in a forever loop without finding one.
+- Fixed a bug where pressing the pause button immediately after you lost your last health allows you to restart the level without every seeing the game over screen.
+- Added a death effect to cars that triggers when they've been stuck for 1 second. This was my solution to the problem I was facing where cars would just pile up on closed nets in level04.
+
+I also spent some time thinking and testing how to make the game easier for players. The first change I made was I reduced the AI's tracking and speed - this should lead to the AI being scored on more often. The second is I increased the default scale of the players in the easy version. Lastly, I changed the collision sprite on human players to be 1px larger in radius than that of the AIs. Hopefully this leads to more players beating the game and overall, a more enjoyable experience.
