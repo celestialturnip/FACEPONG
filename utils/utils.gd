@@ -19,8 +19,9 @@ var colour_dict = {
 	"violet": Color("#FF77A8"),
 	"wood": Color("FFCCAA")
 }
-var completed_level_paths = []
+var all_level_stats = {}
 var current_level_stats = {}
+var demo_completed = false
 var player_settings = {"emotion": "happy", "colour": "yellow"}
 var previous_level_scene_path = null
 var virtual_height = ProjectSettings.get("display/window/size/height")
@@ -55,7 +56,7 @@ func _on_ball_served():
 	current_level_stats["started_at"] = OS.get_unix_time()
 
 func reset_current_level_stats():
-	current_level_stats = {"started_at": null, "goals": 0, "touches": 0}
+	current_level_stats = {"started_at": null, "goals": 0, "touches": 0, "name": ""}
 
 func _on_ai_died():
 	# Check if any AI are alive.
@@ -63,11 +64,17 @@ func _on_ai_died():
 		if player.is_human: continue
 		if player.health > 0: return
 	# Add this level to completed.
-	completed_level_paths.append(previous_level_scene_path)
-	# Load level clear screen.
+	current_level_stats["completed_at"] = OS.get_unix_time()
+	all_level_stats[current_level_stats["name"]] = current_level_stats
+
+	# Load level clear or demo screen.
 	yield(get_tree().create_timer(1.0), "timeout")
-	# warning-ignore:return_value_discarded
-	get_tree().change_scene("res://menus/level_clear.tscn")
+	if (all_level_stats.keys().size() < 5) or demo_completed:
+		# warning-ignore:return_value_discarded
+		get_tree().change_scene("res://menus/level_clear.tscn")
+	else:
+		# warning-ignore:return_value_discarded
+		get_tree().change_scene("res://menus/demo_clear.tscn")
 
 func _on_player_died():
 	yield(get_tree().create_timer(1.0), "timeout")

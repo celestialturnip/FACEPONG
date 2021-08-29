@@ -15,8 +15,7 @@ onready var labels = level_labels + [back_label]
 func _ready() -> void:
 	Utils.toggle(labels[label_idx], true)
 	for label in level_labels:
-		var scene_path = "res://levels/{name}.tscn".format({"name": label.get_parent().name})
-		label.get_parent().get_node("TextureRect").visible = Utils.completed_level_paths.find(scene_path) > -1
+		label.get_parent().get_node("TextureRect").visible = label.get_parent().name in Utils.all_level_stats
 
 func _process(_delta: float) -> void:
 	var current_label = labels[label_idx]
@@ -37,8 +36,8 @@ func _process(_delta: float) -> void:
 			get_tree().change_scene("res://menus/start_menu.tscn")
 			return
 		var level_scene_path = "res://levels/{name}.tscn".format({"name": current_label.get_parent().name})
-		Utils.previous_level_scene_path = level_scene_path
 		Utils.reset_current_level_stats()
+		Utils.current_level_stats["name"] = current_label.get_parent().name
 		# warning-ignore:return_value_discarded
 		get_tree().change_scene(level_scene_path)
 
