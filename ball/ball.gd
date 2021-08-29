@@ -50,7 +50,7 @@ func _physics_process(delta):
 	if collision.collider.has_method("on_hit"): collision.collider.on_hit()
 	if collision.collider is Player:
 		last_touch = collision.collider
-		if last_touch.is_human: Utils.level_stats["touches"] += 1
+		if last_touch.is_human: Utils.current_level_stats["touches"] += 1
 	if collision.collider is Ghost:
 		if not velocity: return
 		var random_push = rand_range(-20, 20)

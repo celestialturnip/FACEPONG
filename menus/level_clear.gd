@@ -8,11 +8,11 @@ func _ready():
 	SoundFX.play("level_clear.wav")
 	Utils.toggle(labels[label_idx], true)
 	
-	var seconds_taken = OS.get_unix_time() - Utils.level_stats["started_at"]
+	var seconds_taken = OS.get_unix_time() - Utils.current_level_stats["started_at"]
 	$VBoxContainer/TimeTakenLabel.text = "Time Taken: " + "%02d" % (seconds_taken / 60) + ":" + "%02d" % (seconds_taken % 60)
 	
-	$VBoxContainer/GoalsLabel.text = "Goals Scored: " + str(Utils.level_stats["goals"])
-	$VBoxContainer/TouchesLabel.text = "Touches: " + str(Utils.level_stats["touches"])
+	$VBoxContainer/GoalsLabel.text = "Goals Scored: " + str(Utils.current_level_stats["goals"])
+	$VBoxContainer/TouchesLabel.text = "Touches: " + str(Utils.current_level_stats["touches"])
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):

@@ -38,7 +38,7 @@ func _process(_delta: float) -> void:
 			return
 		var level_scene_path = "res://levels/{name}.tscn".format({"name": current_label.get_parent().name})
 		Utils.previous_level_scene_path = level_scene_path
-		Utils.reset_level_stats()
+		Utils.reset_current_level_stats()
 		# warning-ignore:return_value_discarded
 		get_tree().change_scene(level_scene_path)
 

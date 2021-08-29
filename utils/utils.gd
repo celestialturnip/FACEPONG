@@ -20,7 +20,7 @@ var colour_dict = {
 	"wood": Color("FFCCAA")
 }
 var completed_level_paths = []
-var level_stats = {}
+var current_level_stats = {}
 var player_settings = {"emotion": "happy", "colour": "yellow"}
 var previous_level_scene_path = null
 var virtual_height = ProjectSettings.get("display/window/size/height")
@@ -51,10 +51,11 @@ func _ready():
 	Signals.connect("ball_served", self, "_on_ball_served")
 
 func _on_ball_served():
-	if not level_stats["started_at"]: level_stats["started_at"] = OS.get_unix_time()
+	if current_level_stats["started_at"]: return
+	current_level_stats["started_at"] = OS.get_unix_time()
 
-func reset_level_stats():
-	level_stats = {"started_at": null, "goals": 0, "touches": 0}
+func reset_current_level_stats():
+	current_level_stats = {"started_at": null, "goals": 0, "touches": 0}
 
 func _on_ai_died():
 	# Check if any AI are alive.
