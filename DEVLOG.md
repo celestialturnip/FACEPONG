@@ -233,3 +233,10 @@ Very productive day with several bug fixes and some polishing:
 - Added a death effect to cars that triggers when they've been stuck for 1 second. This was my solution to the problem I was facing where cars would just pile up on closed nets in level04.
 
 I also spent some time thinking and testing how to make the game easier for players. The first change I made was I reduced the AI's tracking and speed - this should lead to the AI being scored on more often. The second is I increased the default scale of the players in the easy version. Lastly, I changed the collision sprite on human players to be 1px larger in radius than that of the AIs. Hopefully this leads to more players beating the game and overall, a more enjoyable experience.
+
+# Day 23 - 2021/08/29
+Not a very productive day - the only thing I added was a "demo cleared" screen when the player finishes all five levels. On days when I spend a lot of time outside (e.g. yesterday I went hiking for a few hours in the morning), I find it incredibly difficult to do anything but relax afterward. I tried my hand at music composition for a bit in the afternoon but didn't make much progress. As the day went on, I kept looking at my to-do list and didn't see anything that I thought I could reasonably finish in a single day.
+
+I eventually settled on something in the evening, but I definitely don't want to repeat this in the future. Next time, I think I'll try to just pick out some "easy/trivial" tasks that I can knock off, so I still maintain my 1 commit per day and I don't feel unproductive.
+
+Even though I studied music as a kid, I haven't done any music composition in over a decade now. As a result, there's quite a learning curve just getting back to it. I don't know if doing a game every month gives me ample time to really practice and learn new things, as opposed to just execute on a game. I definitely feel the shortcomings in my skills so I want to make sure I have time to actually improve them.
