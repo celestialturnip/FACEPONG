@@ -45,7 +45,7 @@ func _process(_delta: float) -> void:
 				get_tree().change_scene("res://menus/start_menu.tscn")
 			restart_label:
 				# warning-ignore:return_value_discarded
-				get_tree().change_scene(Utils.previous_level_scene_path)
+				get_tree().change_scene("res://levels/" + Utils.current_level_stats["name"] + ".tscn")
 			resume_label:
 				pass
 

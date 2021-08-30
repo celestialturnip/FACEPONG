@@ -3,6 +3,7 @@ extends Node
 onready var sound_players = get_children()
 
 var cache = {}
+var enabled = true
 var sounds_path = "res://sounds/"
 
 func _ready():
@@ -10,6 +11,7 @@ func _ready():
 		cache[file] = load(sounds_path + file)
 
 func play(file_name, pitch_scale = 1, volume_db = 0):
+	if not enabled: return
 	for player in sound_players:
 		if not player.playing:
 			player.pitch_scale = pitch_scale

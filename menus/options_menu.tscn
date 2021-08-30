@@ -56,12 +56,18 @@ margin_right = 128.0
 margin_bottom = 84.0
 text = "Difficulty: Easy"
 
-[node name="TitleGap2" parent="CenterContainer/VBoxContainer" instance=ExtResource( 4 )]
+[node name="SoundsLabel" parent="CenterContainer/VBoxContainer" instance=ExtResource( 6 )]
 margin_top = 88.0
-margin_bottom = 100.0
+margin_right = 128.0
+margin_bottom = 96.0
+text = "Sounds: On"
+
+[node name="TitleGap2" parent="CenterContainer/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 100.0
+margin_bottom = 112.0
 
 [node name="BackLabel" parent="CenterContainer/VBoxContainer" instance=ExtResource( 6 )]
-margin_top = 104.0
+margin_top = 116.0
 margin_right = 128.0
-margin_bottom = 112.0
+margin_bottom = 124.0
 text = "Back"

@@ -3,13 +3,15 @@ extends Control
 var label_idx = 0
 onready var crt_label = $CenterContainer/VBoxContainer/CRTLabel
 onready var difficulty_label = $CenterContainer/VBoxContainer/DifficultyLabel
+onready var sounds_label = $CenterContainer/VBoxContainer/SoundsLabel
 onready var back_label = $CenterContainer/VBoxContainer/BackLabel
-onready var labels = [crt_label, difficulty_label, back_label]
+onready var labels = [crt_label, difficulty_label, sounds_label, back_label]
 
 func _ready():
 	Utils.toggle(labels[label_idx], true)
 	crt_label.text = "CRT: ON" if CRT.is_active() else "CRT: OFF"
 	difficulty_label.text = "Difficulty: %s" % Utils.GAME_DIFFICULTY.keys()[Utils.game_difficulty]
+	sounds_label.text = "Sounds: On" if SoundFX.enabled else "Sounds: Off"
 
 func _process(_delta):
 	var current_label = labels[label_idx]
@@ -25,6 +27,11 @@ func _process(_delta):
 				SoundFX.play("menu_navigation.wav")
 				Utils.toggle_game_difficulty()
 				difficulty_label.text = "Difficulty: %s" % Utils.GAME_DIFFICULTY.keys()[Utils.game_difficulty]
+		sounds_label:
+			if Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
+				SoundFX.enabled = !SoundFX.enabled
+				SoundFX.play("menu_navigation.wav")
+				sounds_label.text = "SOUNDS: ON" if SoundFX.enabled else "SOUNDS: OFF"
 		back_label:
 			if Input.is_action_just_pressed("ui_accept"):
 				SoundFX.play("menu_accept.wav")
