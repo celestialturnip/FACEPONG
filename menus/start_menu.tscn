@@ -1,59 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://ui/wave.shader" type="Shader" id=1]
 [ext_resource path="res://fonts/zx_spectrum/14px.tres" type="DynamicFont" id=2]
-[ext_resource path="res://player/face_happy.png" type="Texture" id=3]
 [ext_resource path="res://menus/start_menu.gd" type="Script" id=6]
 [ext_resource path="res://fonts/zx_spectrum/7px.tres" type="DynamicFont" id=7]
 
-[sub_resource type="Animation" id=1]
-resource_name = "SelectFaceLabel"
-length = 2.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("CenterContainer/VBoxContainer/LevelLabel:rect_position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4, 0.6, 1, 1.4, 1.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 36 ), Vector2( -3, 36 ), Vector2( -3, 36 ), Vector2( 0, 36 ), Vector2( 3, 36 ), Vector2( 3, 36 ) ]
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "OptionsLabel"
-length = 2.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("CenterContainer/VBoxContainer/OptionsLabel:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4, 0.6, 1, 1.4, 1.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 60 ), Vector2( -3, 60 ), Vector2( -3, 60 ), Vector2( 0, 60 ), Vector2( 3, 60 ), Vector2( 3, 60 ) ]
-}
-
-[sub_resource type="Animation" id=3]
-length = 2.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("CenterContainer/VBoxContainer/SelectFaceLabel:rect_position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4, 0.6, 1, 1.4, 1.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 48 ), Vector2( -3, 48 ), Vector2( -3, 48 ), Vector2( 0, 48 ), Vector2( 3, 48 ), Vector2( 3, 48 ) ]
-}
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 1 )
+shader_param/height = 1.0
+shader_param/curve = 0.05
+shader_param/speed = 5.0
 
 [node name="StartMenu" type="Control"]
 anchor_right = 1.0
@@ -71,58 +27,26 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 23.0
-margin_top = 62.0
-margin_right = 137.0
-margin_bottom = 130.0
+margin_left = 18.0
+margin_top = 47.0
+margin_right = 142.0
+margin_bottom = 145.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
-margin_right = 114.0
-margin_bottom = 16.0
-custom_constants/separation = -2
-
-[node name="FACEPO" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-modulate = Color( 1, 0.945098, 0.909804, 1 )
-margin_right = 72.0
-margin_bottom = 16.0
-custom_fonts/font = ExtResource( 2 )
-text = "FACEP"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FaceTexture" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-margin_left = 70.0
-margin_right = 86.0
-margin_bottom = 16.0
-texture = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NG" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-modulate = Color( 1, 0.945098, 0.909804, 1 )
-margin_left = 84.0
-margin_right = 114.0
-margin_bottom = 16.0
-custom_fonts/font = ExtResource( 2 )
-text = "NG"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Control" type="Control" parent="CenterContainer/VBoxContainer"]
-margin_top = 20.0
-margin_right = 114.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 0, 12 )
+[node name="Title" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
+material = SubResource( 4 )
+margin_right = 124.0
+margin_bottom = 62.0
+rect_min_size = Vector2( 124, 62 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[rainbow freq=0.2 sat=.6][center]FACEP[img]res://player/face_happy.png[/img]NG[/center][/rainbow]"
+text = "FACEPNG"
+fit_content_height = true
 
 [node name="LevelLabel" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_top = 36.0
-margin_right = 114.0
-margin_bottom = 44.0
+margin_top = 66.0
+margin_right = 124.0
+margin_bottom = 74.0
 custom_fonts/font = ExtResource( 7 )
 text = "Select Level"
 align = 1
@@ -131,9 +55,9 @@ __meta__ = {
 }
 
 [node name="SelectFaceLabel" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_top = 48.0
-margin_right = 114.0
-margin_bottom = 56.0
+margin_top = 78.0
+margin_right = 124.0
+margin_bottom = 86.0
 custom_fonts/font = ExtResource( 7 )
 text = "Select Face"
 align = 1
@@ -142,18 +66,12 @@ __meta__ = {
 }
 
 [node name="OptionsLabel" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_top = 60.0
-margin_right = 114.0
-margin_bottom = 68.0
+margin_top = 90.0
+margin_right = 124.0
+margin_bottom = 98.0
 custom_fonts/font = ExtResource( 7 )
 text = "Options"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "LevelLabel"
-anims/LevelLabel = SubResource( 1 )
-anims/OptionsLabel = SubResource( 2 )
-anims/SelectFaceLabel = SubResource( 3 )

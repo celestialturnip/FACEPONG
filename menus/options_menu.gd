@@ -46,3 +46,6 @@ func _process(_delta):
 		Utils.toggle(current_label, false)
 		label_idx = (label_idx - 1) % len(labels)
 		Utils.toggle(labels[label_idx], true)
+	elif Input.is_action_just_pressed("ui_cancel"):
+		# warning-ignore:return_value_discarded
+		get_tree().change_scene("res://menus/start_menu.tscn")

@@ -2,7 +2,7 @@ extends Control
 
 var label_idx = 0
 var previous_animation_position = 0
-onready var face_texture = $CenterContainer/VBoxContainer/HBoxContainer/FaceTexture
+onready var title = $CenterContainer/VBoxContainer/Title
 onready var labels = [
 	$CenterContainer/VBoxContainer/LevelLabel,
 	$CenterContainer/VBoxContainer/SelectFaceLabel,
@@ -10,10 +10,9 @@ onready var labels = [
 ]
 
 func _ready():
-	toggle(labels[label_idx], true)
-	face_texture.modulate = Utils.colour_dict[Utils.player_settings["colour"]]
-	var texture = load("res://player/face_{emotion}.png".format({"emotion": Utils.player_settings["emotion"]}))
-	face_texture.set_texture(texture)
+	Utils.toggle(labels[label_idx], true)
+	title.modulate = Utils.colour_dict[Utils.player_settings["colour"]]
+	title.bbcode_text = "[rainbow freq=.2 val=2][center]FACEP[img]%s[/img]NG[/center][/rainbow]" % "res://player/face_{emotion}.png".format({"emotion": Utils.player_settings["emotion"]})
 
 func _process(_delta):
 	var current_label = labels[label_idx]
@@ -32,27 +31,12 @@ func _process(_delta):
 				get_tree().change_scene("res://menus/options_menu.tscn")
 
 	if Input.is_action_just_pressed("ui_down"):
-		toggle(current_label, false)
+		Utils.toggle(current_label, false)
 		label_idx = (label_idx + 1) % len(labels)
-		toggle(labels[label_idx], true)
+		Utils.toggle(labels[label_idx], true)
 	elif Input.is_action_just_pressed("ui_up"):
-		toggle(current_label, false)
+		Utils.toggle(current_label, false)
 		label_idx = (label_idx - 1) % len(labels)
-		toggle(labels[label_idx], true)
+		Utils.toggle(labels[label_idx], true)
 
-
-func toggle(label, on: bool):
-	if not on:
-		label.add_color_override("font_color", Utils.colour_dict["lace"])
-		label.text = label.text.capitalize()
-		SoundFX.play("menu_navigation.wav")
-		previous_animation_position = $AnimationPlayer.current_animation_position
-		$AnimationPlayer.seek(0, true)
-		$AnimationPlayer.stop()
-	else:
-		label.add_color_override("font_color", Utils.colour_dict["orange"])
-		# Start slide.
-		label.text = label.text.to_upper()
-		$AnimationPlayer.play(label.name)
-		$AnimationPlayer.seek(previous_animation_position, true)
 
