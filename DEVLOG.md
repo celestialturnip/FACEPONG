@@ -240,3 +240,6 @@ Not a very productive day - the only thing I added was a "demo cleared" screen w
 I eventually settled on something in the evening, but I definitely don't want to repeat this in the future. Next time, I think I'll try to just pick out some "easy/trivial" tasks that I can knock off, so I still maintain my 1 commit per day and I don't feel unproductive.
 
 Even though I studied music as a kid, I haven't done any music composition in over a decade now. As a result, there's quite a learning curve just getting back to it. I don't know if doing a game every month gives me ample time to really practice and learn new things, as opposed to just execute on a game. I definitely feel the shortcomings in my skills so I want to make sure I have time to actually improve them.
+
+# Day 24 - 2021/08/30
+Small additions yesterday: added a sound toggle in the options menu and refacted the start menu. I spent a bit more time trying to make a title screen tune using Bosca Ceoil, but no luck there. I've heard good things about LMMS so I'm going to watch a few tutorials on that today and see what I can do.
