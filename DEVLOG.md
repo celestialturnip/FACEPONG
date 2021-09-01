@@ -242,4 +242,11 @@ I eventually settled on something in the evening, but I definitely don't want to
 Even though I studied music as a kid, I haven't done any music composition in over a decade now. As a result, there's quite a learning curve just getting back to it. I don't know if doing a game every month gives me ample time to really practice and learn new things, as opposed to just execute on a game. I definitely feel the shortcomings in my skills so I want to make sure I have time to actually improve them.
 
 # Day 24 - 2021/08/30
-Small additions yesterday: added a sound toggle in the options menu and refacted the start menu. I spent a bit more time trying to make a title screen tune using Bosca Ceoil, but no luck there. I've heard good things about LMMS so I'm going to watch a few tutorials on that today and see what I can do.
+Small additions yesterday: added a sound toggle in the options menu and refactored the start menu. I spent a bit more time trying to make a title screen tune using Bosca Ceoil, but no luck there. I've heard good things about LMMS so I'm going to watch a few tutorials on that today and see what I can do.
+
+# Day 25 - 2021/08/31
+I spent more time getting up to speed on LMMS and playing around with trying to compose some basic melodies. At this point in the project, I would say it's code complete. There is almost an endless list of features or changes that I should make and could make, but I'm starting to feel a little burnt out on this project.
+
+I haven't written about burn out yet, and it hasn't really affected me until today. I'm pretty much in a "ready to move on" mindset where I'm satisfied with what I've produced in the last few weeks. I know it's far from perfect but I think it's a good first effort at releasing a game. There's tons of decision I made that I probably would do differently if I were to start it again. 
+
+As a result, I've since started writing a retrospective on my learnings over the last month and my general thoughts going forward. I'm not quite sure if I will publish that in this repository or somewhere else.
