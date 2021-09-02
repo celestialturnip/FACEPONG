@@ -30,7 +30,7 @@ var MainInstances = ResourceLoader.MainInstances
 
 # Game difficulty.
 enum GAME_DIFFICULTY {EASY, HARD}
-var game_difficulty = GAME_DIFFICULTY.HARD
+var game_difficulty = GAME_DIFFICULTY.EASY
 func toggle_game_difficulty():
 	game_difficulty = GAME_DIFFICULTY.EASY if game_difficulty == GAME_DIFFICULTY.HARD else GAME_DIFFICULTY.HARD
 
