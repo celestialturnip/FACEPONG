@@ -250,3 +250,10 @@ I spent more time getting up to speed on LMMS and playing around with trying to 
 I haven't written about burn out yet, and it hasn't really affected me until today. I'm pretty much in a "ready to move on" mindset where I'm satisfied with what I've produced in the last few weeks. I know it's far from perfect but I think it's a good first effort at releasing a game. There's tons of decision I made that I probably would do differently if I were to start it again. 
 
 As a result, I've since started writing a retrospective on my learnings over the last month and my general thoughts going forward. I'm not quite sure if I will publish that in this repository or somewhere else.
+
+# Day 26 - 2021/09/01
+Spent most of my time exploring Itch.io project requirements and figuring out how to make the content I need for it. The most important one that took the longest was getting good screenshots and GIFs that I could use. I used QuickTime to record about 10 minutes of gameplay and then I trimmed individual sections to about 3 to 4 seconds. I made 3 to 5 GIFs per level and then I went through and highlighted the best ones.
+
+Unfortunately, I didn't realize until I was done that Itch.io requires GIFs to be smaller than 3MB in size. Fortunately, I only had one or two that exceeded this size limit but it's something I should be aware of going forward.
+
+For filling out the project description, I browsed through some recent projects to get an idea of what others write here. For the most, it seems it's just a 2-3 sentence description, controls, and then credits - nothing complex.
