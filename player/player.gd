@@ -9,7 +9,7 @@ var friction = 0.30
 var health = 3
 var max_speed = 450  # Human player only.
 var target = null
-var tracking_error = Vector2(rand_range(-8, 8), rand_range(-8, 8)) if Utils.game_difficulty == Utils.GAME_DIFFICULTY.EASY else  Vector2(rand_range(-4, 4), rand_range(-4, 4))
+var tracking_error = Vector2(rand_range(-6, 6), rand_range(-8, 8)) if Utils.game_difficulty == Utils.GAME_DIFFICULTY.EASY else  Vector2(rand_range(-4, 4), rand_range(-4, 4))
 var velocity = Vector2.ZERO
 export(bool) var is_human
 
