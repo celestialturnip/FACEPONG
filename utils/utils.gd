@@ -1,10 +1,10 @@
 extends Node
 
-var bg_color = "#1a020e"
+var bg_color = "#472d3c"
 # https://lospec.com/palette-list/pico-8
 var colour_dict = {
-	"navy": Color("#1D2B53"),
-	"purple": Color("#7E2553"),
+	# "navy": Color("#1D2B53"),
+	# "purple": Color("#7E2553"),
 	"green": Color("#008751"),
 	"olive": Color("#AB5236"),
 	"gray": Color("#5F574F"),
