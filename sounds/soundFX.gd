@@ -7,7 +7,10 @@ var enabled = true
 var sounds_path = "res://sounds/"
 
 func _ready():
-	for file in Utils.list_files_in_directory(sounds_path, ".wav"):
+	for file in Utils.list_files_in_directory(sounds_path, ".wav.import"):
+		# Remove .import from file name for audio to work when exported.
+		# See https://godotengine.org/qa/96597/audio-crashes-and-missing-on-exported-project-3-2-3
+		file = file.rstrip(".import")
 		cache[file] = load(sounds_path + file)
 
 func play(file_name, pitch_scale = 1, volume_db = 0):
