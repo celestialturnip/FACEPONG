@@ -257,3 +257,41 @@ Spent most of my time exploring Itch.io project requirements and figuring out ho
 Unfortunately, I didn't realize until I was done that Itch.io requires GIFs to be smaller than 3MB in size. Fortunately, I only had one or two that exceeded this size limit but it's something I should be aware of going forward.
 
 For filling out the project description, I browsed through some recent projects to get an idea of what others write here. For the most, it seems it's just a 2-3 sentence description, controls, and then credits - nothing complex.
+
+# Day 27 - 2021/09/02
+Continued setting up the Itch.io project page and uploaded the game. The main issue I faced was that audio wasn't working. After some searching on Google, I was about to find the resolution in the [Godot Engine Q&A](https://godotengine.org/qa/96597/audio-crashes-and-missing-on-exported-project-3-2-3).
+
+Essentially, I had a SoundFX (Node) singleton with:
+
+```gdscript
+var cache = {}
+func _ready():
+	for file in Utils.list_files_in_directory("res://sounds/", ".wav"):
+		cache[file] = load(sounds_path + file)
+```
+
+Rather than loading at runtime, I load all .wav files when the project is started. However, this doesn't work when the project is exported because:
+
+> When exporting the project, the imported files can no longer be found in their original locations and are instead stored in the .import folder. However, the .import files are still in their original locations. To use Directory to look through a folder in order to find files, you need to look for the .import files instead. Then, remove the .import from the file name, and load the resulting path (the ResourceLoader will automatically account for the moved file).
+
+Indeed in my `Utils.list_files_in_directory` function, I was using `Directory.new()`. So I had to change the above code to the following in order to get it to work:
+
+```gdscript
+func _ready():
+	for file in Utils.list_files_in_directory(sounds_path, ".wav.import"):
+		file = file.rstrip(".import")
+		cache[file] = load(sounds_path + file)
+```
+
+I also spent quite a bit of time trying to add an audio file to a recorded video (with existing audio). For reference, I had recorded gameplay using QuickTime with BlackHole 2ch. In order to add another audio so that the two audio tracks are combined, I used this ffmpeg command thanks to [StackOverflow]( 
+https://stackoverflow.com/questions/11779490/how-to-add-a-new-audio-not-mixing-into-a-video-using-ffmpeg):
+
+`ffmpeg -i trailer.mov -i audio.m4a -filter_complex "[0:a][1:a]amerge=inputs=2[a]" -map 0:v -map "[a]" -c:v copy -ac 2 -shortest trailer-with-audio.mp4`
+
+I made a trailer with music since Itch.io offers a way to add a YouTube or Video video. But once I uploaded it to YouTube and started filling out the information about the video, I realized I needed a good cover shot with 1280x720 resolution. Then I tried to find some good examples of the general structure of what this should look like.
+
+Lastly, I made a few more changes in preparation for releasing the game:
+- Updated the colours to match the Itch.io background
+- Set default AI difficulty to easy
+- Make the AI easy difficulty slightly better (since they were missing some trivial shots at low speeds)
+
