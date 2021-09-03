@@ -13,7 +13,7 @@ func _ready():
 		file = file.rstrip(".import")
 		cache[file] = load(sounds_path + file)
 
-func play(file_name, pitch_scale = 1, volume_db = 0):
+func play(file_name, pitch_scale = 1, volume_db = -10):
 	if not enabled: return
 	for player in sound_players:
 		if not player.playing:
